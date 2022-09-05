@@ -1,87 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on IShowCode</title>
-    <link>https://IShowCode-xt.github.io/posts/</link>
-    <description>Recent content in Posts on IShowCode</description>
+    <title>Spring on IShowCode</title>
+    <link>https://IShowCode-xt.github.io/tags/spring/</link>
+    <description>Recent content in Spring on IShowCode</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 05 Sep 2022 12:35:53 +0800</lastBuildDate><atom:link href="https://IShowCode-xt.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>C语言基础篇</title>
-      <link>https://IShowCode-xt.github.io/posts/c0/</link>
-      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
-      
-      <guid>https://IShowCode-xt.github.io/posts/c0/</guid>
-      <description>一、什么是C语言？ C语言是一门通用计算机编程语言，广泛应用于底层开发。C语言的设计目标是提供一种能以简易的方式编译、处理低级存储器、产生少量的机器码以及不需要任何运行环境支持便能运行的编程语言。
-尽管C语言提供了许多低级处理的功能，但仍然保持着良好跨平台的特性，以一个标准规格写出的C语言程序可在许多电脑平台上进行编译，甚至包含一些嵌入式处理器（单片机或称MCU）以及超级电脑等作业平台。
-二十世纪八十年代，为了避免各开发厂商用的C语言语法产生差异，由美国国家标准局为C语言制定了一套完整的美国国家标准语法，称为ANSI C，作为C语言最初的标准。 [1] 目前2011年12月8日，国际标准化组织（ISO）和国际电工委员会（IEC）发布的C11标准是C语言的第三个官方标准，也是C语言的最新标准，该标准更好的支持了汉字函数名和汉字标识符，一定程度上实现了汉字编程。
-C语言是一门面向过程的计算机编程语言，与C++，Java等面向对象的编程语言有所不同。 其编译器主要有Clang、GCC、WIN-TC、SUBLIME、MSVC、Turbo C等。
-二、第一个C语言程序 #include &amp;lt;stdio.h&amp;gt; int main() { printf(&amp;#34;hello world!!!\n&amp;#34;); printf(&amp;#34;hello Tian.X、\n&amp;#34;); return 0; } //解释： //main函数是程序的入口 //一个工程中main函数有且仅有一个 三、数据类型 char //字符数据类型 short //短整型 int //整形 long //长整型 long long //更长的整形 float //单精度浮点数 double //双精度浮点数 注意：存在这么多的类型，其实是为了更加丰富的表达生活中的各种值。
-四、数据类型 生活中的有些值是不变的（比如：圆周率，性别（？），身份证号码，血型等等） 有些值是可变的（比如：年龄，体重，薪资）。 不变的值，C语言中用常量的概念来表示，变得值C语言中用变量来表示。 1.定义变量的方法
-int age = 21; float weight = 45.5f; char ch = &amp;#39;x&amp;#39;; 2.变量的分类
-局部变量 全局变量 #include &amp;lt;stdio.h&amp;gt; int global = 2021;//全局变量 int main() { int local = 2020;//局部变量 //下面定义的global会不会有问题？ int global = 2021;//局部变量 printf(&amp;#34;global = %d\n&amp;#34;, global); return 0; } 总结： 上面的局部变量global变量的定义其实没有什么问题的!</description>
-    </item>
-    
-    <item>
-      <title>C语言数组介绍</title>
-      <link>https://IShowCode-xt.github.io/posts/c2/</link>
-      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
-      
-      <guid>https://IShowCode-xt.github.io/posts/c2/</guid>
-      <description>一、一维数组的创建和初始化 1.数组的创建 数组是一组相同类型元素的集合。 数组的创建方式：
-type_t arr_name[const_n]; //type_t 是指数组的元素类型 //const_n 是一个常量表达式，用来指定数组的大小 数组创建的实例:
-//代码1 int arr1[10]; //代码2 int count = 10; int arr2[count]; //数组时候可以正常创建？ //代码3 char arr3[10]; float arr4[1]; double arr5[20]; 注：数组创建，[]中要给一个常量才可以，不能使用变量。
-2.数组的初始化 数组的初始化是指，在创建数组的同时给数组的内容一些合理初始值（初始化）。 看代码：
-int arr1[10] = { 1,2,3 }; int arr2[] = { 1,2,3,4 }; int arr3[5] = { 1，2，3，4，5 }； char arr4[3] = { &amp;#39;a&amp;#39;,98, &amp;#39;c&amp;#39; }; char arr5[] = { &amp;#39;a&amp;#39;,&amp;#39;b&amp;#39;,&amp;#39;c&amp;#39; }; char arr6[] = &amp;#34;abcdef&amp;#34;; 数组在创建的时候如果想不指定数组的确定的大小就得初始化。数组的元素个数根据初始化的内容来确定。 但是对于下面的代码要区分，内存中如何分配。</description>
-    </item>
-    
-    <item>
-      <title>IDEA错误：Cannot start compilation: the output path is not specified for module “Java“. Specify the out</title>
-      <link>https://IShowCode-xt.github.io/posts/j1/</link>
-      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
-      
-      <guid>https://IShowCode-xt.github.io/posts/j1/</guid>
-      <description>idea 运行没有out文件夹 项目运行或出现这样的错误 其实这个错误是因为没有设置output的路径，只要修改两个地方的设置就可以了：
-1.点击idea左上角File
-2.选择Project Structure
-3.在Modules设置里勾选”Inherit project compile path”
-4.设置Project中的”Project compiler output”
-5.选择”Project的路径”+”\out”，比如说我的就是D:\ideaproject\javaSE\out
-将这两处改好后就能正常运行了。</description>
-    </item>
-    
-    <item>
-      <title>Jdk安装及配置最全教程</title>
-      <link>https://IShowCode-xt.github.io/posts/j0/</link>
-      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
-      
-      <guid>https://IShowCode-xt.github.io/posts/j0/</guid>
-      <description>一、java 开发环境搭建 1.百度搜索JDK8,找到下载地址 2.选择对应版本 3.安装jdk 3.1首先点击下载的安装包 3.2进行下一步
-3.3下一步 3.4下一步
-可以更改JDK安装路径（记住此路径后面需要用到）
-3.5关闭
-到此JDK安装结束,点击关闭。
-4.配置环境变量 4.1 JDK环境变量配置
-右击我的电脑点击属性
-点击高级系统设置
-点击环境变量 点击新建系统变量
-变量名填入：JAVA_HOME
-变量值为你安装JDK的路径
-然后点击确定
-继续新建系统变量
-变量名：CLASSPATH
-值：,;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
-然后点击确定。
-在系统变量找到Path的变量 双击Path
-点击新建
-加入
-%JAVA_HOME%\bin
-%JAVA_HOME%\jre\bin
-5. JDK安装检测 打开电脑Cmd命令窗口
-输入 java –version
-然后回车会出现如图所示的JDK信息则说明JDK安装成功。</description>
-    </item>
-    
+    <lastBuildDate>Mon, 05 Sep 2022 12:35:53 +0800</lastBuildDate><atom:link href="https://IShowCode-xt.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>springmvc参数绑定</title>
       <link>https://IShowCode-xt.github.io/posts/s4/</link>
@@ -133,21 +57,6 @@ SpringMVC 已经成为目前最主流的MVC框架之一，并且随着Spring3.0 
     </item>
     
     <item>
-      <title>深度分析数据在内存中的存储形式</title>
-      <link>https://IShowCode-xt.github.io/posts/c1/</link>
-      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
-      
-      <guid>https://IShowCode-xt.github.io/posts/c1/</guid>
-      <description>一、数据的基本类型介绍 char//字符数据类型 short//短整型 int//整形 long//长整型 long long //更长的整形 float//单精度浮点数 double//双精度浮点数 二、整型在内存中的存储形式 一个变量的创建是要在内存中开辟空间的。空间的大小是根据不同的类型而决定的。那接下来我们谈谈数据在所开辟内存中到底是如何存储的？ 比如：
-int a = 20; int b = -10; 我们知道为a分配四个字节的空间。 那如何存储？ 下来了解下面的概念：
-1.原码、反码、补码 计算机中的整数有三种表示方法，即原码、反码和补码。 三种表示方法均有符号位和数值位两部分，符号位都是用0表示“正”，用1表示“负”，而数值位负整数的三种表示方法各不相同。 原码 直接将二进制按照正负数的形式翻译成二进制就可以。 反码 将原码的符号位不变，其他位依次按位取反就可以得到了。 补码 反码+1就得到补码。 正数的原、反、补码都相同。 对于整形来说：数据存放内存中其实存放的是补码。 为什么呢？ 在计算机系统中，数值一律用补码来表示和存储。原因在于，使用补码，可以将符号位和数值域统一处理； 同时，加法和减法也可以统一处理（CPU只有加法器）此外，补码与原码相互转换，其运算过程是相同的，不需要额外的硬件电路。
-int a = 20; int b = -10; int* p = &amp;amp;a; int* q = &amp;amp;b; 在这组数据中，会发现数据的存储顺序是倒着的 这是又为什么？
-2.大小端介绍 什么大端小端： 大端（存储）模式，是指数据的低位保存在内存的高地址中，而数据的高位，保存在内存的低地址中； 小端（存储）模式，是指数据的低位保存在内存的低地址中，而数据的高位,，保存在内存的高地址中。 为什么有大端和小端： 为什么会有大小端模式之分呢？这是因为在计算机系统中，我们是以字节为单位的，每个地址单元都对应着一个字节，一个字节为8 bit。但是在C语言中除了8 bit的char之外，还有16 bit的short型，32 bit的long型（要看具体的编译器），另外，对于位数大于8位的处理器，例如16位或者32位的处理器，由于寄存器宽度大于一个字节，那么必然存在着一个如何将多个字节安排的问题。因此就导致了大端存储模式和小端存储模式。 例如：一个16bit的short型x，在内存中的地址为0x0010，x的值为0x1122，那么0x11为高字节，0x22为低字节。对于大端模式，就将0x11放在低地址中，即0x0010中，0x22放在高地址中，即0x0011中。小端模式，刚好相反。我们常用的X86结构是小端模式，而KEIL C51则为大端模式。很多的ARM，DSP都为小端模式。有些ARM处理器还可以由硬件来选择是大端模式还是小端模式。
-百度2015年系统工程师笔试题：请简述大端字节序和小端字节序的概念，设计一个小程序来判断当前机器的字节序。（10分）
-//代码1 #include &amp;lt;stdio.</description>
-    </item>
-    
-    <item>
       <title>纯手写爆肝史上最详细讲解SpringBoot</title>
       <link>https://IShowCode-xt.github.io/posts/s5/</link>
       <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
@@ -177,31 +86,6 @@ Spring Boot 简化了基于Spring的应用开发，只需要“run”就能创�
       <description>JdbcTemplate基本使用 1-JdbcTemplate基本使用-概述(了解) JdbcTemplate是spring框架中提供的一个对象，是对原始繁琐的Jdbc API对象的简单封装。spring框架为我们提供 了很多的操作模板类。例如：操作关系型数据的JdbcTemplate和HibernateTemplate，操作nosql数据库的 RedisTemplate，操作消息队列的JmsTemplate等等。
 2-JdbcTemplate基本使用-开发步骤(理解) ①导入spring-jdbc和spring-tx坐标 ②创建数据库表和实体 ③创建JdbcTemplate对象 ④执行数据库操作
 3-JdbcTemplate基本使用-快速入门代码实现(应用) 导入spring-jdbc和spring-tx坐标 &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐context&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.8.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐test&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.8.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐jdbc&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.8.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐tx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.8.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!‐‐织入包‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.aspectj&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;aspectjweaver&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.8.4&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!‐‐数据源相关‐‐&amp;gt; &amp;lt;!‐‐ Druid连接池 ‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.alibaba&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;druid&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.1.10&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!‐‐ mysql驱动 ‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql‐connector‐java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.39&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!‐‐servlet相关‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;javax.servlet‐api&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.1.0&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;javax.servlet.jsp&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;javax.servlet.jsp‐api&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.2.1&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.</description>
-    </item>
-    
-    <item>
-      <title>超详细讲解mybatis入门</title>
-      <link>https://IShowCode-xt.github.io/posts/m0/</link>
-      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
-      
-      <guid>https://IShowCode-xt.github.io/posts/m0/</guid>
-      <description>mybatis入门 学习目标 【应用】Mybatis的快速入门 【应用】MyBatis的增删改查操作 【掌握】MyBatis核心配置文件概述 1、Mybatis简介 1.1原始jdbc操作（查询数据） 1.2原始jdbc操作（插入数据） 1.3 原始jdbc操作的分析 原始jdbc开发存在的问题如下：
-①数据库连接创建、释放频繁造成系统资源浪费从而影响系统性能 ②sql 语句在代码中硬编码，造成代码不易维护，实际应用 sql 变化的可能较大，sql 变动需要改变java代码。 ③查询操作时，需要手动将结果集中的数据手动封装到实体中。插入操作时，需要手动将实体的数据设置到sql语 句的占位符位置
-应对上述问题给出的解决方案：
-①使用数据库连接池初始化连接资源 ②将sql语句抽取到xml配置文件中 ③使用反射、内省等底层技术，自动将实体与表进行属性与字段的自动映射
-1.4 什么是Mybatis mybatis 是一个优秀的基于java的持久层框架，它内部封装了jdbc，使开发者只需要关注sql语句本身，而不需要花费精力去处理加载驱动、创建连接、创建statement等繁杂的过程。
-mybatis通过xml或注解的方式将要执行的各种 statement配置起来，并通过java对象和statement中sql的动态参 数进行映射生成最终执行的sql语句。
-最后mybatis框架执行sql并将结果映射为java对象并返回。采用ORM思想解决了实体和数据库映射的问题，对jdbc进行了封装，屏蔽了jdbc api 底层访问细节，使我们不用与jdbc api 打交道，就可以完成对数据库的持久化操作。
-1.5 Mybatis架构 2、Mybatis的快速入门 2.1 MyBatis开发步骤 MyBatis官网地址：http://www.mybatis.org/mybatis-3/
-MyBatis开发步骤：
-①添加MyBatis的坐标
-②创建user数据表
-③编写User实体类
-④编写映射文件UserMapper.xml
-⑤编写核心文件SqlMapConfig.xml
-⑥编写测试类
-2.2 环境搭建 1.导入MyBatis的坐标和其他相关坐标
-&amp;lt;!‐‐mybatis坐标‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.5.5&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!‐‐ mysql驱动 ‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql‐connector‐java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.39&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!‐‐单元测试坐标‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.12&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!</description>
     </item>
     
     <item>

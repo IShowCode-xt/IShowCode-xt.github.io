@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>C语言基础篇 // IShowCode</title>
+    <link rel="shortcut icon" href="avatar.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.102.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Summer" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://IShowCode-xt.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="C语言基础篇"/>
+<meta name="twitter:description" content="一、什么是C语言？ C语言是一门通用计算机编程语言，广泛应用于底层开发。C语言的设计目标是提供一种能以简易的方式编译、处理低级存储器、产生少量的机器码以及不需要任何运行环境支持便能运行的编程语言。
+尽管C语言提供了许多低级处理的功能，但仍然保持着良好跨平台的特性，以一个标准规格写出的C语言程序可在许多电脑平台上进行编译，甚至包含一些嵌入式处理器（单片机或称MCU）以及超级电脑等作业平台。
+二十世纪八十年代，为了避免各开发厂商用的C语言语法产生差异，由美国国家标准局为C语言制定了一套完整的美国国家标准语法，称为ANSI C，作为C语言最初的标准。 [1] 目前2011年12月8日，国际标准化组织（ISO）和国际电工委员会（IEC）发布的C11标准是C语言的第三个官方标准，也是C语言的最新标准，该标准更好的支持了汉字函数名和汉字标识符，一定程度上实现了汉字编程。
+C语言是一门面向过程的计算机编程语言，与C&#43;&#43;，Java等面向对象的编程语言有所不同。 其编译器主要有Clang、GCC、WIN-TC、SUBLIME、MSVC、Turbo C等。
+二、第一个C语言程序 #include &lt;stdio.h&gt; int main() { printf(&#34;hello world!!!\n&#34;); printf(&#34;hello Tian.X、\n&#34;); return 0; } //解释： //main函数是程序的入口 //一个工程中main函数有且仅有一个 三、数据类型 char //字符数据类型 short //短整型 int //整形 long //长整型 long long //更长的整形 float //单精度浮点数 double //双精度浮点数 注意：存在这么多的类型，其实是为了更加丰富的表达生活中的各种值。
+四、数据类型 生活中的有些值是不变的（比如：圆周率，性别（？），身份证号码，血型等等） 有些值是可变的（比如：年龄，体重，薪资）。 不变的值，C语言中用常量的概念来表示，变得值C语言中用变量来表示。 1.定义变量的方法
+int age = 21; float weight = 45.5f; char ch = &#39;x&#39;; 2.变量的分类
+局部变量 全局变量 #include &lt;stdio.h&gt; int global = 2021;//全局变量 int main() { int local = 2020;//局部变量 //下面定义的global会不会有问题？ int global = 2021;//局部变量 printf(&#34;global = %d\n&#34;, global); return 0; } 总结： 上面的局部变量global变量的定义其实没有什么问题的!"/>
+
+    <meta property="og:title" content="C语言基础篇" />
+<meta property="og:description" content="一、什么是C语言？ C语言是一门通用计算机编程语言，广泛应用于底层开发。C语言的设计目标是提供一种能以简易的方式编译、处理低级存储器、产生少量的机器码以及不需要任何运行环境支持便能运行的编程语言。
+尽管C语言提供了许多低级处理的功能，但仍然保持着良好跨平台的特性，以一个标准规格写出的C语言程序可在许多电脑平台上进行编译，甚至包含一些嵌入式处理器（单片机或称MCU）以及超级电脑等作业平台。
+二十世纪八十年代，为了避免各开发厂商用的C语言语法产生差异，由美国国家标准局为C语言制定了一套完整的美国国家标准语法，称为ANSI C，作为C语言最初的标准。 [1] 目前2011年12月8日，国际标准化组织（ISO）和国际电工委员会（IEC）发布的C11标准是C语言的第三个官方标准，也是C语言的最新标准，该标准更好的支持了汉字函数名和汉字标识符，一定程度上实现了汉字编程。
+C语言是一门面向过程的计算机编程语言，与C&#43;&#43;，Java等面向对象的编程语言有所不同。 其编译器主要有Clang、GCC、WIN-TC、SUBLIME、MSVC、Turbo C等。
+二、第一个C语言程序 #include &lt;stdio.h&gt; int main() { printf(&#34;hello world!!!\n&#34;); printf(&#34;hello Tian.X、\n&#34;); return 0; } //解释： //main函数是程序的入口 //一个工程中main函数有且仅有一个 三、数据类型 char //字符数据类型 short //短整型 int //整形 long //长整型 long long //更长的整形 float //单精度浮点数 double //双精度浮点数 注意：存在这么多的类型，其实是为了更加丰富的表达生活中的各种值。
+四、数据类型 生活中的有些值是不变的（比如：圆周率，性别（？），身份证号码，血型等等） 有些值是可变的（比如：年龄，体重，薪资）。 不变的值，C语言中用常量的概念来表示，变得值C语言中用变量来表示。 1.定义变量的方法
+int age = 21; float weight = 45.5f; char ch = &#39;x&#39;; 2.变量的分类
+局部变量 全局变量 #include &lt;stdio.h&gt; int global = 2021;//全局变量 int main() { int local = 2020;//局部变量 //下面定义的global会不会有问题？ int global = 2021;//局部变量 printf(&#34;global = %d\n&#34;, global); return 0; } 总结： 上面的局部变量global变量的定义其实没有什么问题的!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://IShowCode-xt.github.io/posts/c0/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-05T12:35:53+08:00" />
+<meta property="article:modified_time" content="2022-09-05T12:35:53+08:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://IShowCode-xt.github.io"><img class="app-header-avatar" src="/lan.jpg" alt="Summer" /></a>
+      <h1>IShowCode</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>后端小白的混子日常</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/xt-summer" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://gitee.com/IShowMyCode" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <title>Gitee</title>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">C语言基础篇</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 5, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://IShowCode-xt.github.io/tags/c/">C</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="一什么是c语言">一、什么是C语言？</h1>
+<p>C语言是一门通用计算机编程语言，广泛应用于底层开发。C语言的设计目标是提供一种能以简易的方式编译、处理低级存储器、产生少量的机器码以及不需要任何运行环境支持便能运行的编程语言。</p>
+<p>尽管C语言提供了许多低级处理的功能，但仍然保持着良好跨平台的特性，以一个标准规格写出的C语言程序可在许多电脑平台上进行编译，甚至包含一些嵌入式处理器（单片机或称MCU）以及超级电脑等作业平台。</p>
+<p>二十世纪八十年代，为了避免各开发厂商用的C语言语法产生差异，由美国国家标准局为C语言制定了一套完整的美国国家标准语法，称为ANSI C，作为C语言最初的标准。 [1] 目前2011年12月8日，国际标准化组织（ISO）和国际电工委员会（IEC）发布的C11标准是C语言的第三个官方标准，也是C语言的最新标准，该标准更好的支持了汉字函数名和汉字标识符，一定程度上实现了汉字编程。</p>
+<p>C语言是一门面向过程的计算机编程语言，与C++，Java等面向对象的编程语言有所不同。
+其编译器主要有Clang、GCC、WIN-TC、SUBLIME、MSVC、Turbo C等。</p>
+<h1 id="二第一个c语言程序">二、第一个C语言程序</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;hello world!!!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;hello Tian.X、</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//解释：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//main函数是程序的入口
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//一个工程中main函数有且仅有一个
+</span></span></span></code></pre></div><h1 id="三数据类型">三、数据类型</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">char</span>        <span style="color:#75715e">//字符数据类型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">short</span>       <span style="color:#75715e">//短整型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span>         <span style="color:#75715e">//整形
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">long</span>        <span style="color:#75715e">//长整型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>   <span style="color:#75715e">//更长的整形
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">float</span>       <span style="color:#75715e">//单精度浮点数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">double</span>      <span style="color:#75715e">//双精度浮点数
+</span></span></span></code></pre></div><p>注意：存在这么多的类型，其实是为了更加丰富的表达生活中的各种值。</p>
+<h1 id="四数据类型">四、数据类型</h1>
+<p>生活中的有些值是不变的（比如：圆周率，性别（？），身份证号码，血型等等）
+有些值是可变的（比如：年龄，体重，薪资）。
+不变的值，C语言中用常量的概念来表示，变得值C语言中用变量来表示。
+<strong>1.定义变量的方法</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> age <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float</span> weight <span style="color:#f92672">=</span> <span style="color:#ae81ff">45.5f</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> ch <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;x&#39;</span>;
+</span></span></code></pre></div><p><strong>2.变量的分类</strong></p>
+<ol>
+<li>局部变量</li>
+<li>全局变量</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> global <span style="color:#f92672">=</span> <span style="color:#ae81ff">2021</span>;<span style="color:#75715e">//全局变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> local <span style="color:#f92672">=</span> <span style="color:#ae81ff">2020</span>;<span style="color:#75715e">//局部变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//下面定义的global会不会有问题？
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> global <span style="color:#f92672">=</span> <span style="color:#ae81ff">2021</span>;<span style="color:#75715e">//局部变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    printf(<span style="color:#e6db74">&#34;global = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, global);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>总结：</strong>
+上面的局部变量global变量的定义其实没有什么问题的!
+当局部变量和全局变量同名的时候，局部变量优先使用。</p>
+<p><strong>3.变量的使用</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> num1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">int</span> num2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;输入两个操作数:&gt;&#34;</span>);
+</span></span><span style="display:flex;"><span>    scanf(<span style="color:#e6db74">&#34;%d %d&#34;</span>, <span style="color:#f92672">&amp;</span>num1, <span style="color:#f92672">&amp;</span>num2);
+</span></span><span style="display:flex;"><span>    sum <span style="color:#f92672">=</span> num1 <span style="color:#f92672">+</span> num2;
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;sum = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, sum);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//这里介绍一下输入，输出语句
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//scanf
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//printf
+</span></span></span></code></pre></div><p><strong>4.变量的作用域和生命周期</strong></p>
+<p><strong>作用域</strong>
+作用域（scope），程序设计概念，通常来说，一段程序代码中所用到的名字并不总是有效/可用的。
+而限定这个名字的可用性的代码范围就是这个名字的作用域。</p>
+<ol>
+<li>局部变量的作用域是变量所在的局部范围。</li>
+<li>全局变量的作用域是整个工程。</li>
+</ol>
+<p><strong>生命周期</strong>
+变量的生命周期是变量的创建到变量的销毁之间的一个时间段</p>
+<ol>
+<li>局部变量的生命周期是：进入作用域生命周期开始，出作用域生命周期结束。</li>
+<li>全局变量的生命周期是：整个程序的生命周期。</li>
+</ol>
+<p><strong>5.常量</strong>
+C语言中的常量和变量的定义的形式有所差异。
+C语言中的常量分为以下以下几种：
+1.字面常量
+2.const 修饰的常变量
+3.#define 定义的标识符常量
+4.枚举常量</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">//举例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">enum</span> Sex
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> MALE,
+</span></span><span style="display:flex;"><span> FEMALE,
+</span></span><span style="display:flex;"><span> SECRET
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//括号中的MALE,FEMALE,SECRET是枚举常量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">3.14</span>;<span style="color:#75715e">//字面常量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#ae81ff">1000</span>;<span style="color:#75715e">//字面常量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float</span> pai <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.14f</span>;   <span style="color:#75715e">//const 修饰的常量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    pai <span style="color:#f92672">=</span> <span style="color:#ae81ff">5.14</span>;<span style="color:#75715e">//ok?
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#75715e">#define MAX 100            </span><span style="color:#75715e">//#define的标识符常量    
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>6.字符串+转义字符+注释</strong>
+<strong>1.字符串</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#e6db74">&#34;hello world.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>这种由双引号（Double Quote）引起来的一串字符称为字符串字面值（String Literal），或者简称字符串。
+注：字符串的结束标志是一个 \0 的转义字符。在计算字符串长度的时候 \0 是结束标志，不算作字符串内容。
+<strong>2.转义字符</strong></p>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\?</td>
+<td>在书写连续多个问号时使用，防止他们被解析成三字母词</td>
+</tr>
+<tr>
+<td>\'</td>
+<td>用于表示字符常量'</td>
+</tr>
+<tr>
+<td>\“</td>
+<td>用于表示一个字符串内部的双引号</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>用于表示一个反斜杠，防止它被解释为一个转义序列符。</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>警告字符，蜂鸣</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格符</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>进纸符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td>\ddd</td>
+<td>ddd表示1~3个八进制的数字。 如： \130 X</td>
+</tr>
+<tr>
+<td>\xdd</td>
+<td>dd表示2个十六进制数字。 如： \x30 0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>7.注释</strong></p>
+<ol>
+<li>代码中有不需要的代码可以直接删除，也可以注释掉</li>
+<li>代码中有些代码比较难懂，可以加一下注释文字</li>
+</ol>
+<p>注释有两种风格：
+C语言风格的注释 /<em>xxxxxx</em>/
+缺陷：不能嵌套注释
+C++风格的注释 //xxxxxxxx
+可以注释一行也可以注释多行</p>
+<!-- raw HTML omitted -->
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

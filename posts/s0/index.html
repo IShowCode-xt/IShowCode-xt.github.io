@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Spring简介以及IOC详解 // IShowCode</title>
+    <link rel="shortcut icon" href="avatar.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.102.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Summer" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://IShowCode-xt.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring简介以及IOC详解"/>
+<meta name="twitter:description" content="Spring简介和配置 学习目标 【应用】能够独立完成springIOC的快速入门 【应用】能够掌握spring的bean标签的配置 【应用】能够独立完成bean的对象属性注入 【应用】能够独立完成bean的普通属性注入 【理解】能够独立完成bean的集合属性注入
+1、Spring概述 1.1 spring 是什么 Spring是分层的 Java SE/EE应用 full-stack 轻量级开源框架，以 IoC（Inverse Of Control：反转控制）和AOP（Aspect Oriented Programming：面向切面编程）为内核。 提供了表现层 SpringMVC和持久层 Spring JDBCTemplate以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多著名的第三方框架和类库，逐渐成为使用最多的Java EE 企业应用开源框架。
+1.2 Spring发展历程 1997 年， IBM提出了EJB 的思想 1998 年，SUN制定开发标准规范 EJB1.0 1999 年，EJB1.1 发布 2001 年，EJB2.0 发布 2003 年，EJB2.1 发布 2006 年，EJB3.0 发布 Rod Johnson 罗宾·约翰逊（ Spring 之父） Expert One-to-One J2EE Design and Development(2002) 阐述了 J2EE 使用EJB 开发设计的优点及解决方案 Expert One-to-One J2EE Development without EJB(2004) 阐述了 J2EE 开发不使用 EJB的解决方式（Spring 雏 形） 2021 年 7 月份发布了 Spring 的最新版本 Spring 5."/>
+
+    <meta property="og:title" content="Spring简介以及IOC详解" />
+<meta property="og:description" content="Spring简介和配置 学习目标 【应用】能够独立完成springIOC的快速入门 【应用】能够掌握spring的bean标签的配置 【应用】能够独立完成bean的对象属性注入 【应用】能够独立完成bean的普通属性注入 【理解】能够独立完成bean的集合属性注入
+1、Spring概述 1.1 spring 是什么 Spring是分层的 Java SE/EE应用 full-stack 轻量级开源框架，以 IoC（Inverse Of Control：反转控制）和AOP（Aspect Oriented Programming：面向切面编程）为内核。 提供了表现层 SpringMVC和持久层 Spring JDBCTemplate以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多著名的第三方框架和类库，逐渐成为使用最多的Java EE 企业应用开源框架。
+1.2 Spring发展历程 1997 年， IBM提出了EJB 的思想 1998 年，SUN制定开发标准规范 EJB1.0 1999 年，EJB1.1 发布 2001 年，EJB2.0 发布 2003 年，EJB2.1 发布 2006 年，EJB3.0 发布 Rod Johnson 罗宾·约翰逊（ Spring 之父） Expert One-to-One J2EE Design and Development(2002) 阐述了 J2EE 使用EJB 开发设计的优点及解决方案 Expert One-to-One J2EE Development without EJB(2004) 阐述了 J2EE 开发不使用 EJB的解决方式（Spring 雏 形） 2021 年 7 月份发布了 Spring 的最新版本 Spring 5." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://IShowCode-xt.github.io/posts/s0/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-05T12:35:53+08:00" />
+<meta property="article:modified_time" content="2022-09-05T12:35:53+08:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://IShowCode-xt.github.io"><img class="app-header-avatar" src="/lan.jpg" alt="Summer" /></a>
+      <h1>IShowCode</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>后端小白的混子日常</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/xt-summer" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://gitee.com/IShowMyCode" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <title>Gitee</title>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Spring简介以及IOC详解</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 5, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://IShowCode-xt.github.io/tags/java/">Java</a>
+              <a class="tag" href="https://IShowCode-xt.github.io/tags/spring/">Spring</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="spring简介和配置">Spring简介和配置</h1>
+<h2 id="学习目标">学习目标</h2>
+<p>【应用】能够独立完成springIOC的快速入门
+【应用】能够掌握spring的bean标签的配置
+【应用】能够独立完成bean的对象属性注入
+【应用】能够独立完成bean的普通属性注入
+【理解】能够独立完成bean的集合属性注入</p>
+<h2 id="1spring概述">1、Spring概述</h2>
+<h3 id="11-spring-是什么">1.1 spring 是什么</h3>
+<p><img src="https://img-blog.csdnimg.cn/0d7bec6a7e554488b317309ead7ae971.png#pic_center" alt="在这里插入图片描述"></p>
+<p>Spring是分层的 Java SE/EE应用 full-stack 轻量级开源框架，以 IoC（Inverse Of Control：反转控制）和AOP（Aspect Oriented Programming：面向切面编程）为内核。
+提供了表现层 SpringMVC和持久层 Spring JDBCTemplate以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多著名的第三方框架和类库，逐渐成为使用最多的Java EE 企业应用开源框架。</p>
+<h3 id="12-spring发展历程">1.2 Spring发展历程</h3>
+<p>1997 年， IBM提出了EJB 的思想
+1998 年，SUN制定开发标准规范 EJB1.0
+1999 年，EJB1.1 发布
+2001 年，EJB2.0 发布
+2003 年，EJB2.1 发布
+2006 年，EJB3.0 发布
+Rod Johnson 罗宾·约翰逊（ Spring 之父）
+<img src="https://img-blog.csdnimg.cn/f7941a61dbdf425d84ceb184b6beef8a.png#pic_center" alt="在这里插入图片描述"></p>
+<p>Expert One-to-One J2EE Design and Development(2002) 阐述了 J2EE 使用EJB 开发设计的优点及解决方案
+Expert One-to-One J2EE Development without EJB(2004) 阐述了 J2EE 开发不使用 EJB的解决方式（Spring 雏
+形）
+2021 年 7 月份发布了 Spring 的最新版本 Spring 5.3.9 通用版（正式发布的版本）</p>
+<h3 id="13-spring的优势-理解">1.3 Spring的优势 （理解）</h3>
+<h4 id="1-方便解耦简化开发">\1. 方便解耦，简化开发</h4>
+<p>Spring 就是一个大工厂（IoC容器），可以将所有对象的创建和依赖关系的维护工作都交给 Spring 容器管理，大大地降低了组件之间的耦合性。</p>
+<h4 id="2-aop-编程的支持">\2. AOP 编程的支持</h4>
+<p>通过 Spring的 AOP 功能，方便进行面向切面编程，许多不容易用传统 OOP 实现的功能可以通过 AOP 轻松实现。
+如 实现对程序进行权限拦截、运行监控等功能</p>
+<h4 id="3-声明式事务的支持">\3. 声明式事务的支持</h4>
+<p>可以将我们从单调烦闷的事务管理代码中解脱出来，通过声明式方式灵活的进行事务管理，提高开发效率和质量。</p>
+<h4 id="4-方便程序的测试">\4. 方便程序的测试</h4>
+<p>Spring对Junit4支持，可以通过注解方便的测试Spring程序，测试不再是昂贵的操作，而是随手可做的事情。</p>
+<h4 id="5-方便集成各种优秀框架">\5. 方便集成各种优秀框架</h4>
+<p>Spring不排斥各种优秀的开源框架，其内部提供了对各种优秀框架（如：Struts、Hibernate、MyBatis、Quartz等）的直接支持。</p>
+<h4 id="6-降低-javaee-api-的使用难度">\6. 降低 JavaEE API 的使用难度</h4>
+<p>Spring 对JavaEE开发中非常难用的一些API（JDBC、JavaMail、远程调用等），都提供了封装，使这些API应用难度大大降低。</p>
+<h4 id="7-java-源码是经典学习范例">\7. Java 源码是经典学习范例</h4>
+<p>Spring的源代码设计精妙、结构清晰、匠心独用，处处体现着大师对Java 设计模式灵活运用以及对 Java技术的高深造诣。它的源代码无意是 Java 技术的最佳实践的范例。</p>
+<h3 id="14-spring的体系结构了解">1.4 Spring的体系结构（了解）</h3>
+<p><img src="https://img-blog.csdnimg.cn/29b69e4a7cee4fc890490146f8d0e0ca.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="2spring-ioc快速入门">2、Spring IoC快速入门</h2>
+<h3 id="21-ioc的概念和作用">2.1 IoC的概念和作用</h3>
+<p>IoC：控制反转(Inversion Of Control) ，就是应用本身不负责依赖对象的创建及维护，依赖对象的创建及维护是由外部容器负责的。这样控制权就由应用转移到了外部容器，控制权的转移就是所谓反转。</p>
+<p>简单理解:把对象的创建、初始化、销毁等工作交给spring容器来做。由spring容器控制对象的生命周期。</p>
+<p>明确 IoC的作用：削减计算机程序的耦合(解除我们代码中的依赖关系)。
+原来：我们在获取对象时，都是采用 new 的方式。 是主动的。
+现在：我们获取对象时，跟spring容器要，有spring为我们查找或者创建对象。 是被动的。</p>
+<h3 id="22-spring-ioc程序开发步骤">2.2 Spring IoC程序开发步骤</h3>
+<p>①导入 Spring 开发的基本包坐标
+②编写 Dao 接口和实现类
+③创建 Spring 核心配置文件
+④在 Spring 配置文件中配置 UserDaoImpl
+⑤使用 Spring 的 API 获得 Bean 实例</p>
+<h3 id="23-导入spring开发的基本包坐标">2.3 导入Spring开发的基本包坐标</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;groupId&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;artifactId&gt;</span>spring‐context<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;version&gt;</span>5.2.8.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;groupId&gt;</span>junit<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;artifactId&gt;</span>junit<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;version&gt;</span>4.12<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependencies&gt;</span>
+</span></span></code></pre></div><h3 id="24-编写dao接口和实现类">2.4 编写Dao接口和实现类</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.summer.dao<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserDao</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.summer.dao.impl<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.summer.dao.UserDao<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserDaoImpl</span> <span style="color:#66d9ef">implements</span> UserDao <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;用户添加~~~~~&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="25-创建spring核心配置文件">2.5 创建Spring核心配置文件</h3>
+<p>在类路径 classpath 下（resources）创建applicationContext.xml配置文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF‐8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema‐instance&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">http://www.springframework.org/schema/beans/spring‐beans.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/beans&gt;</span>
+</span></span></code></pre></div><h3 id="26-在spring配置文件中配置userdaoimpl">2.6 在Spring配置文件中配置UserDaoImpl</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF‐8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema‐instance&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">http://www.springframework.org/schema/beans/spring‐beans.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!‐‐ 实现IoC将对象的创建 交给spring容器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">UserDao userDao = new UserDaoImpl();
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">‐‐&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userDao&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.bailiban.dao.impl.UserDaoImpl&#34;</span><span style="color:#f92672">&gt;&lt;/bean&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/beans&gt;</span>
+</span></span></code></pre></div><h3 id="27-使用spring的api获得bean实例">2.7 使用Spring的API获得Bean实例</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestIoC</span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 创建spring容器实例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ApplicationContext context <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span>
+</span></span><span style="display:flex;"><span>ClassPathXmlApplicationContext<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;applicationContext.xml&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//从容器中获取 bean 根据 唯一标识id获取
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>UserDao userDao <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>UserDao<span style="color:#f92672">)</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;userDao&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>userDao<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>在类路径下寻找配置文件来实例化容器
+Spring快速入门代码巩固练习
+练习下通过springIoC的 XML配置方式来进行对象的实例化
+\1. 导入坐标
+\2. 创建Bean
+\3. 创建配置文件applicationContext.xml
+\4. 在配置文件中进行配置
+\5. 创建ApplicationContext对象getBean</p>
+<h2 id="3-bean的依赖注入入门">3、 Bean的依赖注入入门</h2>
+<p>① 编写Dao，Service接口和实现类</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserDao</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserDaoImpl</span> <span style="color:#66d9ef">implements</span> UserDao <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;用户添加~~~~~&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserServiceImpl</span> <span style="color:#66d9ef">implements</span> UserService <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//TODO
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>②将UserDaoImpl 、 UserServiceImpl 的创建权交给 Spring</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">&lt;</span>
+</span></span><span style="display:flex;"><span>!‐‐ spring IoC 将对象的创建权交给spring‐‐&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userDao&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.bailiban.dao.impl.UserDaoImpl&#34;</span><span style="color:#f92672">&gt;&lt;/bean&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userService&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.bailiban.service.impl.UserServiceImpl&#34;</span><span style="color:#f92672">&gt;&lt;/bean&gt;</span>
+</span></span></code></pre></div><p>UserService 内部再调用 UserDao的save() 方法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserServiceImpl</span> <span style="color:#66d9ef">implements</span> UserService <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//创建spring容器实例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ApplicationContext context <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ClassPathXmlApplicationContext<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//根据id获取dao对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>UserDao userDao <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>UserDao<span style="color:#f92672">)</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;userDao&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//调用方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>userDao<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>③从 Spring 容器中获得 UserService 进行操作</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestDI</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//测试 DI快速入门
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test1</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//创建spring容器实例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ApplicationContext context <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span>
+</span></span><span style="display:flex;"><span>ClassPathXmlApplicationContext<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;applicationContext.xml&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//根据id获取dao对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>UserService userService <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>UserService<span style="color:#f92672">)</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;userService&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//调用方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>userService<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="31-bean的依赖注入分析">3.1 Bean的依赖注入分析</h3>
+<p>目前UserService实例和UserDao实例都存在与Spring容器中，当前的做法是在容器外部获得UserService实例和UserDao实例，然后在程序中进行结合。
+<img src="https://img-blog.csdnimg.cn/b81e50959cff492aaca8d6821c4a413d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>因为UserService和UserDao都在Spring容器中，而最终程序直接使用的是UserService，所以可以在Spring容器中，将UserDao设置到UserService内部。</p>
+<p><img src="https://img-blog.csdnimg.cn/21ff3117c74545ab89806c8f5584fd8c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="32-bean的依赖注入概念">3.2 Bean的依赖注入概念</h3>
+<p>DI : Dependency Injection 依赖注入 , 需要有 IoC的环境,Spring 创建对象的过程中,Spring 将对象依赖的属性注入到对象。</p>
+<p>在编写程序时，通过控制反转，把对象的创建交给了 Spring，但是代码中不可能出现没有依赖的情况。</p>
+<p>IoC解耦只是降低他们的依赖关系，但不会消除。例如：业务层仍会调用持久层的方法。
+那这种业务层和持久层的依赖关系，在使用 Spring 之后，就让 Spring 来维护了。
+简单的说，就是坐等框架把持久层对象传入业务层，而不用我们自己去获取。</p>
+<h3 id="33-bean的依赖注入方式">3.3 Bean的依赖注入方式</h3>
+<p>怎么将UserDao怎样注入到UserService内部呢？</p>
+<h4 id="332-set方法">3.3.2 set方法</h4>
+<p>在UserServiceImpl中添加setUserDao方法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserServiceImpl</span> <span style="color:#66d9ef">implements</span> UserService <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 定义dao成员变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">private</span> UserDao userDao<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setUserDao</span><span style="color:#f92672">(</span>UserDao userDao<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userDao</span> <span style="color:#f92672">=</span> userDao<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// //创建spring容器实例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// ApplicationContext context = new
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ClassPathXmlApplicationContext<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;applicationContext.xml&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// //根据id获取dao对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// UserDao userDao = (UserDao) context.getBean(&#34;userDao&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// //调用方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>userDao<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>配置Spring容器调用set方法进行注入</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userDao&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.bailiban.dao.impl.UserDaoImpl&#34;</span><span style="color:#f92672">&gt;&lt;/bean&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userService&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.bailiban.service.impl.UserServiceImpl&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!‐‐使用set方法注入
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">name： set方法去掉set后 首字母小写
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">‐‐&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;userDao&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;userDao&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bean&gt;</span>
+</span></span></code></pre></div><p>set方法:P命名空间注入
+P命名空间注入本质也是set方法注入，但比起上述的set方法注入更加方便，主要体现在配置文件中，如下：
+首先，需要引入P命名空间：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>xmlns:p=&#34;http://www.springframework.org/schema/p&#34;
+</span></span></code></pre></div><p>其次，需要修改注入方式</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userService&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.bailiban.service.impl.UserServiceImpl&#34;</span> <span style="color:#960050;background-color:#1e0010">p:userDao‐</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;userDao&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><h3 id="34-bean的依赖注入的数据类型">3.4 Bean的依赖注入的数据类型</h3>
+<p>上面的操作，都是注入的引用Bean，除了对象的引用可以注入，普通数据类型 等都可以在容器中进行注入。
+注入数据的二种数据类型
+1.普通数据类型
+2.引用数据类型
+其中引用数据类型，此处就不再赘述了，之前的操作都是对UserDao对象的引用进行注入的，下面将以set方法注入为例，演示普通数据类型的注入。
+<strong>Bean的依赖注入的数据类型</strong>
+（1）普通数据类型的注入
+练习：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserDaoImpl</span> <span style="color:#66d9ef">implements</span> UserDao <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//普通数据类型的注入
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setAge</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> age<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> age<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;‐‐‐&#34;</span><span style="color:#f92672">+</span>age<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;用户添加~~~~~&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> 
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userDao&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.bailiban.dao.impl.UserDaoImpl&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!‐‐ 普通数据的注入 ‐‐&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;旺财&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;age&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;18&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bean&gt;</span>
+</span></span></code></pre></div>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

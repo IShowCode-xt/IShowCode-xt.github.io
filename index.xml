@@ -7,12 +7,215 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 05 Sep 2022 12:35:53 +0800</lastBuildDate><atom:link href="https://IShowCode-xt.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test1</title>
-      <link>https://IShowCode-xt.github.io/posts/test1/</link>
+      <title>C语言基础篇</title>
+      <link>https://IShowCode-xt.github.io/posts/c0/</link>
       <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
       
-      <guid>https://IShowCode-xt.github.io/posts/test1/</guid>
-      <description>This is a test </description>
+      <guid>https://IShowCode-xt.github.io/posts/c0/</guid>
+      <description>一、什么是C语言？ C语言是一门通用计算机编程语言，广泛应用于底层开发。C语言的设计目标是提供一种能以简易的方式编译、处理低级存储器、产生少量的机器码以及不需要任何运行环境支持便能运行的编程语言。
+尽管C语言提供了许多低级处理的功能，但仍然保持着良好跨平台的特性，以一个标准规格写出的C语言程序可在许多电脑平台上进行编译，甚至包含一些嵌入式处理器（单片机或称MCU）以及超级电脑等作业平台。
+二十世纪八十年代，为了避免各开发厂商用的C语言语法产生差异，由美国国家标准局为C语言制定了一套完整的美国国家标准语法，称为ANSI C，作为C语言最初的标准。 [1] 目前2011年12月8日，国际标准化组织（ISO）和国际电工委员会（IEC）发布的C11标准是C语言的第三个官方标准，也是C语言的最新标准，该标准更好的支持了汉字函数名和汉字标识符，一定程度上实现了汉字编程。
+C语言是一门面向过程的计算机编程语言，与C++，Java等面向对象的编程语言有所不同。 其编译器主要有Clang、GCC、WIN-TC、SUBLIME、MSVC、Turbo C等。
+二、第一个C语言程序 #include &amp;lt;stdio.h&amp;gt; int main() { printf(&amp;#34;hello world!!!\n&amp;#34;); printf(&amp;#34;hello Tian.X、\n&amp;#34;); return 0; } //解释： //main函数是程序的入口 //一个工程中main函数有且仅有一个 三、数据类型 char //字符数据类型 short //短整型 int //整形 long //长整型 long long //更长的整形 float //单精度浮点数 double //双精度浮点数 注意：存在这么多的类型，其实是为了更加丰富的表达生活中的各种值。
+四、数据类型 生活中的有些值是不变的（比如：圆周率，性别（？），身份证号码，血型等等） 有些值是可变的（比如：年龄，体重，薪资）。 不变的值，C语言中用常量的概念来表示，变得值C语言中用变量来表示。 1.定义变量的方法
+int age = 21; float weight = 45.5f; char ch = &amp;#39;x&amp;#39;; 2.变量的分类
+局部变量 全局变量 #include &amp;lt;stdio.h&amp;gt; int global = 2021;//全局变量 int main() { int local = 2020;//局部变量 //下面定义的global会不会有问题？ int global = 2021;//局部变量 printf(&amp;#34;global = %d\n&amp;#34;, global); return 0; } 总结： 上面的局部变量global变量的定义其实没有什么问题的!</description>
+    </item>
+    
+    <item>
+      <title>C语言数组介绍</title>
+      <link>https://IShowCode-xt.github.io/posts/c2/</link>
+      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
+      
+      <guid>https://IShowCode-xt.github.io/posts/c2/</guid>
+      <description>一、一维数组的创建和初始化 1.数组的创建 数组是一组相同类型元素的集合。 数组的创建方式：
+type_t arr_name[const_n]; //type_t 是指数组的元素类型 //const_n 是一个常量表达式，用来指定数组的大小 数组创建的实例:
+//代码1 int arr1[10]; //代码2 int count = 10; int arr2[count]; //数组时候可以正常创建？ //代码3 char arr3[10]; float arr4[1]; double arr5[20]; 注：数组创建，[]中要给一个常量才可以，不能使用变量。
+2.数组的初始化 数组的初始化是指，在创建数组的同时给数组的内容一些合理初始值（初始化）。 看代码：
+int arr1[10] = { 1,2,3 }; int arr2[] = { 1,2,3,4 }; int arr3[5] = { 1，2，3，4，5 }； char arr4[3] = { &amp;#39;a&amp;#39;,98, &amp;#39;c&amp;#39; }; char arr5[] = { &amp;#39;a&amp;#39;,&amp;#39;b&amp;#39;,&amp;#39;c&amp;#39; }; char arr6[] = &amp;#34;abcdef&amp;#34;; 数组在创建的时候如果想不指定数组的确定的大小就得初始化。数组的元素个数根据初始化的内容来确定。 但是对于下面的代码要区分，内存中如何分配。</description>
+    </item>
+    
+    <item>
+      <title>IDEA错误：Cannot start compilation: the output path is not specified for module “Java“. Specify the out</title>
+      <link>https://IShowCode-xt.github.io/posts/j1/</link>
+      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
+      
+      <guid>https://IShowCode-xt.github.io/posts/j1/</guid>
+      <description>idea 运行没有out文件夹 项目运行或出现这样的错误 其实这个错误是因为没有设置output的路径，只要修改两个地方的设置就可以了：
+1.点击idea左上角File
+2.选择Project Structure
+3.在Modules设置里勾选”Inherit project compile path”
+4.设置Project中的”Project compiler output”
+5.选择”Project的路径”+”\out”，比如说我的就是D:\ideaproject\javaSE\out
+将这两处改好后就能正常运行了。</description>
+    </item>
+    
+    <item>
+      <title>Jdk安装及配置最全教程</title>
+      <link>https://IShowCode-xt.github.io/posts/j0/</link>
+      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
+      
+      <guid>https://IShowCode-xt.github.io/posts/j0/</guid>
+      <description>一、java 开发环境搭建 1.百度搜索JDK8,找到下载地址 2.选择对应版本 3.安装jdk 3.1首先点击下载的安装包 3.2进行下一步
+3.3下一步 3.4下一步
+可以更改JDK安装路径（记住此路径后面需要用到）
+3.5关闭
+到此JDK安装结束,点击关闭。
+4.配置环境变量 4.1 JDK环境变量配置
+右击我的电脑点击属性
+点击高级系统设置
+点击环境变量 点击新建系统变量
+变量名填入：JAVA_HOME
+变量值为你安装JDK的路径
+然后点击确定
+继续新建系统变量
+变量名：CLASSPATH
+值：,;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+然后点击确定。
+在系统变量找到Path的变量 双击Path
+点击新建
+加入
+%JAVA_HOME%\bin
+%JAVA_HOME%\jre\bin
+5. JDK安装检测 打开电脑Cmd命令窗口
+输入 java –version
+然后回车会出现如图所示的JDK信息则说明JDK安装成功。</description>
+    </item>
+    
+    <item>
+      <title>springmvc参数绑定</title>
+      <link>https://IShowCode-xt.github.io/posts/s4/</link>
+      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
+      
+      <guid>https://IShowCode-xt.github.io/posts/s4/</guid>
+      <description>Springmvc参数绑定 【应用】能够使用SpringMVC获取基本类型参数 【应用】能够使用SpringMVC获取POJO类型参数 1、默认支持的参数类型 处理器形参中添加如下类型的参数，处理适配器会默认识别并进行赋值。
+HttpServletRequest
+通过request对象获取请求信息
+HttpServletResponse
+通过response处理响应信息
+HttpSession
+通过session对象得到session中存放的对象
+Model/ModelMap
+Model
+Model对象可以向页面传递数据，其本质都是使用Request对象向jsp传递数据。
+ModelMap
+ModelMap是Model接口的实现类，也可以通过ModelMap向页面传递数据
+使用Model和ModelMap的效果一样，如果直接使用Model，springmvc会实例化ModelMap。
+代码如下：
+@RequestMapping(&amp;#34;/quick1&amp;#34;) //绑定默认参数 注入Servlet 相关API public void quick1(HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException { //向 request域中放数据 request.setAttribute(&amp;#34;msg&amp;#34;,&amp;#34;大家好&amp;#34;); //转发 request.getRequestDispatcher(&amp;#34;/WEB‐INF/jsp/success.jsp&amp;#34;).forward(request, response); } @RequestMapping(&amp;#34;/quick2&amp;#34;) //通过参数 注入原生的对象 public String quick2(Model model){ //向model放数据 等价于 向request域中放数据 model.addAttribute(&amp;#34;msg&amp;#34;,&amp;#34;好好学习&amp;#34;); return &amp;#34;success&amp;#34;; } 2、绑定简单类型 当请求的参数名称和处理器形参名称一致时会将请求参数与形参进行绑定。 这样，从Request取参数的方法就可以进一步简化。
+/ /接收简单的数据 @RequestMapping(&amp;#34;/quick3&amp;#34;) //定义一个参数名和提交的数据的key一致 public String quick3(int id ,String name){ System.out.println(id); System.out.println(name); return &amp;#34;success&amp;#34;; } 2.</description>
+    </item>
+    
+    <item>
+      <title>Springmvc基础</title>
+      <link>https://IShowCode-xt.github.io/posts/s3/</link>
+      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
+      
+      <guid>https://IShowCode-xt.github.io/posts/s3/</guid>
+      <description>Springmvc基础 【应用】能够独立完成springmvc的入门案例 【应用】能够说出springmvc的执行流程 【应用】能够熟悉springmvc的常用组件 1、SpringMVC的简介 1.1 SpringMVC概述 SpringMVC 是一种基于 Java 的实现 MVC 设计模型的请求驱动类型的轻量级 Web 框架，属于SpringFrameWork的后续产品，已经融合在 Spring Web Flow 中。
+SpringMVC 已经成为目前最主流的MVC框架之一，并且随着Spring3.0 的发布，全面超越 Struts2，成为最优秀的MVC 框架。它通过一套注解，让一个简单的 Java 类成为处理请求的控制器，而无须实现任何接口。同时它还支持RESTful 编程风格的请求。
+1.2 Springmvc处理流程 ​ 1.3 SpringMVC快速入门 需求：客户端发起请求，服务器端接收请求，执行逻辑并进行视图跳转。
+开发步骤
+①导入SpringMVC相关坐标 ②配置SpringMVC核心控制器DispathcerServlet ③创建Controller类和视图页面 ④使用注解配置Controller类中业务方法的映射地址 ⑤配置SpringMVC核心文件 spring-mvc.xml ⑥客户端发起请求测试
+代码实现 ①导入Spring和SpringMVC的坐标、导入Servlet和Jsp的坐标
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐context&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.8.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐test&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.8.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐jdbc&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.8.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐tx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.8.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!‐‐springmvc相关‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐web&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.8.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
+    </item>
+    
+    <item>
+      <title>Spring简介以及IOC详解</title>
+      <link>https://IShowCode-xt.github.io/posts/s0/</link>
+      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
+      
+      <guid>https://IShowCode-xt.github.io/posts/s0/</guid>
+      <description>Spring简介和配置 学习目标 【应用】能够独立完成springIOC的快速入门 【应用】能够掌握spring的bean标签的配置 【应用】能够独立完成bean的对象属性注入 【应用】能够独立完成bean的普通属性注入 【理解】能够独立完成bean的集合属性注入
+1、Spring概述 1.1 spring 是什么 Spring是分层的 Java SE/EE应用 full-stack 轻量级开源框架，以 IoC（Inverse Of Control：反转控制）和AOP（Aspect Oriented Programming：面向切面编程）为内核。 提供了表现层 SpringMVC和持久层 Spring JDBCTemplate以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多著名的第三方框架和类库，逐渐成为使用最多的Java EE 企业应用开源框架。
+1.2 Spring发展历程 1997 年， IBM提出了EJB 的思想 1998 年，SUN制定开发标准规范 EJB1.0 1999 年，EJB1.1 发布 2001 年，EJB2.0 发布 2003 年，EJB2.1 发布 2006 年，EJB3.0 发布 Rod Johnson 罗宾·约翰逊（ Spring 之父） Expert One-to-One J2EE Design and Development(2002) 阐述了 J2EE 使用EJB 开发设计的优点及解决方案 Expert One-to-One J2EE Development without EJB(2004) 阐述了 J2EE 开发不使用 EJB的解决方式（Spring 雏 形） 2021 年 7 月份发布了 Spring 的最新版本 Spring 5.</description>
+    </item>
+    
+    <item>
+      <title>深度分析数据在内存中的存储形式</title>
+      <link>https://IShowCode-xt.github.io/posts/c1/</link>
+      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
+      
+      <guid>https://IShowCode-xt.github.io/posts/c1/</guid>
+      <description>一、数据的基本类型介绍 char//字符数据类型 short//短整型 int//整形 long//长整型 long long //更长的整形 float//单精度浮点数 double//双精度浮点数 二、整型在内存中的存储形式 一个变量的创建是要在内存中开辟空间的。空间的大小是根据不同的类型而决定的。那接下来我们谈谈数据在所开辟内存中到底是如何存储的？ 比如：
+int a = 20; int b = -10; 我们知道为a分配四个字节的空间。 那如何存储？ 下来了解下面的概念：
+1.原码、反码、补码 计算机中的整数有三种表示方法，即原码、反码和补码。 三种表示方法均有符号位和数值位两部分，符号位都是用0表示“正”，用1表示“负”，而数值位负整数的三种表示方法各不相同。 原码 直接将二进制按照正负数的形式翻译成二进制就可以。 反码 将原码的符号位不变，其他位依次按位取反就可以得到了。 补码 反码+1就得到补码。 正数的原、反、补码都相同。 对于整形来说：数据存放内存中其实存放的是补码。 为什么呢？ 在计算机系统中，数值一律用补码来表示和存储。原因在于，使用补码，可以将符号位和数值域统一处理； 同时，加法和减法也可以统一处理（CPU只有加法器）此外，补码与原码相互转换，其运算过程是相同的，不需要额外的硬件电路。
+int a = 20; int b = -10; int* p = &amp;amp;a; int* q = &amp;amp;b; 在这组数据中，会发现数据的存储顺序是倒着的 这是又为什么？
+2.大小端介绍 什么大端小端： 大端（存储）模式，是指数据的低位保存在内存的高地址中，而数据的高位，保存在内存的低地址中； 小端（存储）模式，是指数据的低位保存在内存的低地址中，而数据的高位,，保存在内存的高地址中。 为什么有大端和小端： 为什么会有大小端模式之分呢？这是因为在计算机系统中，我们是以字节为单位的，每个地址单元都对应着一个字节，一个字节为8 bit。但是在C语言中除了8 bit的char之外，还有16 bit的short型，32 bit的long型（要看具体的编译器），另外，对于位数大于8位的处理器，例如16位或者32位的处理器，由于寄存器宽度大于一个字节，那么必然存在着一个如何将多个字节安排的问题。因此就导致了大端存储模式和小端存储模式。 例如：一个16bit的short型x，在内存中的地址为0x0010，x的值为0x1122，那么0x11为高字节，0x22为低字节。对于大端模式，就将0x11放在低地址中，即0x0010中，0x22放在高地址中，即0x0011中。小端模式，刚好相反。我们常用的X86结构是小端模式，而KEIL C51则为大端模式。很多的ARM，DSP都为小端模式。有些ARM处理器还可以由硬件来选择是大端模式还是小端模式。
+百度2015年系统工程师笔试题：请简述大端字节序和小端字节序的概念，设计一个小程序来判断当前机器的字节序。（10分）
+//代码1 #include &amp;lt;stdio.</description>
+    </item>
+    
+    <item>
+      <title>纯手写爆肝史上最详细讲解SpringBoot</title>
+      <link>https://IShowCode-xt.github.io/posts/s5/</link>
+      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
+      
+      <guid>https://IShowCode-xt.github.io/posts/s5/</guid>
+      <description>SpringBoot基础 一、SpringBoot简介 1.1. 什么是Spring Boot Spring Boot是Spring项目中的一个子工程，与我们所熟知的Spring-framework 同属于spring的产品:
+一般把Spring Boot称为搭建程序的脚手架或者说是便捷搭建基于Spring的工程 脚手架。其最主要作用就是帮助开 发人员快速的构建庞大的spring项目，并且尽可能的减少一切xml配置，做到开箱即用，迅速上手，让开发人员关注业务而非配置。
+1.2. 为什么要学习Spring Boot java一直被人诟病的一点就是臃肿、麻烦。 究其原因注意是两点：
+复杂的配置
+项目各种配置其实是开发时的损耗， 因为在思考 Spring 特性配置和解决业务问题之间需要进行思维切换，所以写 配置挤占了写应用程序逻辑的时间。
+个是混乱的依赖管理
+项目的依赖管理也是件吃力不讨好的事情。决定项目里要用哪些库就已经够让人头痛的了，你还要知道这些库的哪 个版本和其他库不会有冲突，这难题实在太棘手。并且，依赖管理也是一种损耗，添加依赖不是写应用程序代码。 一旦选错了依赖的版本，随之而来的不兼容问题毫无疑问会是生产力杀手。
+而Spring Boot让这一切成为过去！
+Spring Boot 简化了基于Spring的应用开发，只需要“run”就能创建一个独立的、生产级别的Spring应用。Spring Boot为Spring平台及第三方库提供开箱即用的设置（提供默认设置，存放默认配置的包就是启动器starter），这样我们就可以简单的开始。多数Spring Boot应用只需要很少的Spring配置。 我们可以使用Spring Boot创建java应用，并使用java –jar 启动它，就能得到一个生产级别的web工程。
+1.3. Spring Boot的特点 1.3.1 SpringBoot的特点 为基于Spring的开发提供更快的入门体验 开箱即用，没有代码生成，也无需XML配置。同时也可以修改默认值来满足特定的需求 提供了一些大型项目中常见的非功能性特性，如嵌入式服务器、安全、指标，健康检测、外部配置等 SpringBoot不是对Spring功能上的增强，而是提供了一种快速使用Spring的方式 二、SpringBoot快速入门 接下来，我们就来利用Spring Boot搭建一个web工程，体会一下Spring Boot的魅力所在！
+2.1 创建Maven工程 使用idea工具创建一个maven工程，该工程为普通的java工程即可
+2.2 添加SpringBoot的起步依赖 看到这里很多同学会有疑惑，前面说传统开发的问题之一就是依赖管理混乱，怎么这里我们还需要管理依赖呢？难 道Spring Boot不帮我们管理吗？ 别着急，现在我们的项目与Spring Boot还没有什么关联。Spring Boot提供了一个名为spring-boot-starter-parent的工程，里面已经对各种常用依赖（并非全部）的版本进行了管理，我们的项目需要以这个项目为父工程，这样我们就不用操心依赖的版本问题了，需要什么依赖，直接引入坐标即可 。
+2.2.1. 添加父工程坐标 &amp;lt;parent&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐boot‐starter‐parent&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.</description>
+    </item>
+    
+    <item>
+      <title>纯手写超详细讲解Spring JdbcTemplate&amp;声明式事务</title>
+      <link>https://IShowCode-xt.github.io/posts/s2/</link>
+      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
+      
+      <guid>https://IShowCode-xt.github.io/posts/s2/</guid>
+      <description>JdbcTemplate基本使用 1-JdbcTemplate基本使用-概述(了解) JdbcTemplate是spring框架中提供的一个对象，是对原始繁琐的Jdbc API对象的简单封装。spring框架为我们提供 了很多的操作模板类。例如：操作关系型数据的JdbcTemplate和HibernateTemplate，操作nosql数据库的 RedisTemplate，操作消息队列的JmsTemplate等等。
+2-JdbcTemplate基本使用-开发步骤(理解) ①导入spring-jdbc和spring-tx坐标 ②创建数据库表和实体 ③创建JdbcTemplate对象 ④执行数据库操作
+3-JdbcTemplate基本使用-快速入门代码实现(应用) 导入spring-jdbc和spring-tx坐标 &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐context&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.8.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐test&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.8.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐jdbc&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.8.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring‐tx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.8.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!‐‐织入包‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.aspectj&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;aspectjweaver&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.8.4&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!‐‐数据源相关‐‐&amp;gt; &amp;lt;!‐‐ Druid连接池 ‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.alibaba&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;druid&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.1.10&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!‐‐ mysql驱动 ‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql‐connector‐java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.39&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!‐‐servlet相关‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;javax.servlet‐api&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.1.0&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;javax.servlet.jsp&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;javax.servlet.jsp‐api&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.2.1&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.</description>
+    </item>
+    
+    <item>
+      <title>超详细讲解mybatis入门</title>
+      <link>https://IShowCode-xt.github.io/posts/m0/</link>
+      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
+      
+      <guid>https://IShowCode-xt.github.io/posts/m0/</guid>
+      <description>mybatis入门 学习目标 【应用】Mybatis的快速入门 【应用】MyBatis的增删改查操作 【掌握】MyBatis核心配置文件概述 1、Mybatis简介 1.1原始jdbc操作（查询数据） 1.2原始jdbc操作（插入数据） 1.3 原始jdbc操作的分析 原始jdbc开发存在的问题如下：
+①数据库连接创建、释放频繁造成系统资源浪费从而影响系统性能 ②sql 语句在代码中硬编码，造成代码不易维护，实际应用 sql 变化的可能较大，sql 变动需要改变java代码。 ③查询操作时，需要手动将结果集中的数据手动封装到实体中。插入操作时，需要手动将实体的数据设置到sql语 句的占位符位置
+应对上述问题给出的解决方案：
+①使用数据库连接池初始化连接资源 ②将sql语句抽取到xml配置文件中 ③使用反射、内省等底层技术，自动将实体与表进行属性与字段的自动映射
+1.4 什么是Mybatis mybatis 是一个优秀的基于java的持久层框架，它内部封装了jdbc，使开发者只需要关注sql语句本身，而不需要花费精力去处理加载驱动、创建连接、创建statement等繁杂的过程。
+mybatis通过xml或注解的方式将要执行的各种 statement配置起来，并通过java对象和statement中sql的动态参 数进行映射生成最终执行的sql语句。
+最后mybatis框架执行sql并将结果映射为java对象并返回。采用ORM思想解决了实体和数据库映射的问题，对jdbc进行了封装，屏蔽了jdbc api 底层访问细节，使我们不用与jdbc api 打交道，就可以完成对数据库的持久化操作。
+1.5 Mybatis架构 2、Mybatis的快速入门 2.1 MyBatis开发步骤 MyBatis官网地址：http://www.mybatis.org/mybatis-3/
+MyBatis开发步骤：
+①添加MyBatis的坐标
+②创建user数据表
+③编写User实体类
+④编写映射文件UserMapper.xml
+⑤编写核心文件SqlMapConfig.xml
+⑥编写测试类
+2.2 环境搭建 1.导入MyBatis的坐标和其他相关坐标
+&amp;lt;!‐‐mybatis坐标‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.5.5&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!‐‐ mysql驱动 ‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql‐connector‐java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.39&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!‐‐单元测试坐标‐‐&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.12&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title>超详细讲解SpringMVC三层架构</title>
+      <link>https://IShowCode-xt.github.io/posts/s1/</link>
+      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
+      
+      <guid>https://IShowCode-xt.github.io/posts/s1/</guid>
+      <description>SpringMVC三层架构 java SpringMVC的工程结构一般来说分为三层，自下而上是Modle层（模型，数据访问层）、Cotroller层（控制，逻辑控制层）、View层（视图，页面显示层），其中Modle层分为两层：dao层、service层，MVC架构分层的主要作用是解耦。采用分层架构的好处，普遍接受的是系统分层有利于系统的维护，系统的扩展。就是增强系统的可维护性和可扩展性。
+对于Spring这样的框架，（View\Web）表示层调用控制层（Controller），控制层调用业务层（Service），业务层调用数据访问层（Dao）。 service层：业务层，用来实现业务逻辑。能调用dao层或者service层，返回数据对象DO或者业务对象BO，BO通常由DO转化、整合而来，可以包含多个DO的属性，也可以是只包含一个DO的部分属性。通常为了简便，如果无需转化，service也可以直接返回DO。外部调用（HTTP、RPC）方法也在这一层，对于外部调用来说，service一般会将外部调用返回的DTO转化为BO。是专注业务逻辑，对于其中需要的数据库操作，都通过Dao去实现。主要去负责一些业务处理，比如取得连接、关闭数据库连接、事务回滚,一些复杂的逻辑业务处理就放到service层。
+DAO层：负责访问数据库进行数据的操作，取得结果集，之后将结果集中的数据取出封装到VO类对象之后返回给service层。数据层，直接进行数据库的读写操作，返回数据对象DO，DO与数据库表一一对应。Dao的作用是封装对数据库的访问：增删改查，不涉及业务逻辑，只是达到按某个条件获得指定数据的要求。
+Cotroller层：叫做控制层，主要的功能是处理用户发送的请求。主要处理外部请求。调用service层，将service层返回的BO/DO转化为DTO/VO并封装成统一返回对象返回给调用方。如果返回数据用于前端模版渲染则返回VO，否则一般返回DTO。不论是DTO还是VO，一般都会对BO/DO中的数据进行一些转化和整合。
+View层：叫做显示层，主要是负责现实数据。
+在实际开发中dao层要先定义出自己的操作标准即标准接口，就是为了解耦合。</description>
     </item>
     
     <item>

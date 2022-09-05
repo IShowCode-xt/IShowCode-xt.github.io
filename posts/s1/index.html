@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>超详细讲解SpringMVC三层架构 // IShowCode</title>
+    <link rel="shortcut icon" href="avatar.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.102.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Summer" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://IShowCode-xt.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="超详细讲解SpringMVC三层架构"/>
+<meta name="twitter:description" content="SpringMVC三层架构 java SpringMVC的工程结构一般来说分为三层，自下而上是Modle层（模型，数据访问层）、Cotroller层（控制，逻辑控制层）、View层（视图，页面显示层），其中Modle层分为两层：dao层、service层，MVC架构分层的主要作用是解耦。采用分层架构的好处，普遍接受的是系统分层有利于系统的维护，系统的扩展。就是增强系统的可维护性和可扩展性。
+对于Spring这样的框架，（View\Web）表示层调用控制层（Controller），控制层调用业务层（Service），业务层调用数据访问层（Dao）。 service层：业务层，用来实现业务逻辑。能调用dao层或者service层，返回数据对象DO或者业务对象BO，BO通常由DO转化、整合而来，可以包含多个DO的属性，也可以是只包含一个DO的部分属性。通常为了简便，如果无需转化，service也可以直接返回DO。外部调用（HTTP、RPC）方法也在这一层，对于外部调用来说，service一般会将外部调用返回的DTO转化为BO。是专注业务逻辑，对于其中需要的数据库操作，都通过Dao去实现。主要去负责一些业务处理，比如取得连接、关闭数据库连接、事务回滚,一些复杂的逻辑业务处理就放到service层。
+DAO层：负责访问数据库进行数据的操作，取得结果集，之后将结果集中的数据取出封装到VO类对象之后返回给service层。数据层，直接进行数据库的读写操作，返回数据对象DO，DO与数据库表一一对应。Dao的作用是封装对数据库的访问：增删改查，不涉及业务逻辑，只是达到按某个条件获得指定数据的要求。
+Cotroller层：叫做控制层，主要的功能是处理用户发送的请求。主要处理外部请求。调用service层，将service层返回的BO/DO转化为DTO/VO并封装成统一返回对象返回给调用方。如果返回数据用于前端模版渲染则返回VO，否则一般返回DTO。不论是DTO还是VO，一般都会对BO/DO中的数据进行一些转化和整合。
+View层：叫做显示层，主要是负责现实数据。
+在实际开发中dao层要先定义出自己的操作标准即标准接口，就是为了解耦合。"/>
+
+    <meta property="og:title" content="超详细讲解SpringMVC三层架构" />
+<meta property="og:description" content="SpringMVC三层架构 java SpringMVC的工程结构一般来说分为三层，自下而上是Modle层（模型，数据访问层）、Cotroller层（控制，逻辑控制层）、View层（视图，页面显示层），其中Modle层分为两层：dao层、service层，MVC架构分层的主要作用是解耦。采用分层架构的好处，普遍接受的是系统分层有利于系统的维护，系统的扩展。就是增强系统的可维护性和可扩展性。
+对于Spring这样的框架，（View\Web）表示层调用控制层（Controller），控制层调用业务层（Service），业务层调用数据访问层（Dao）。 service层：业务层，用来实现业务逻辑。能调用dao层或者service层，返回数据对象DO或者业务对象BO，BO通常由DO转化、整合而来，可以包含多个DO的属性，也可以是只包含一个DO的部分属性。通常为了简便，如果无需转化，service也可以直接返回DO。外部调用（HTTP、RPC）方法也在这一层，对于外部调用来说，service一般会将外部调用返回的DTO转化为BO。是专注业务逻辑，对于其中需要的数据库操作，都通过Dao去实现。主要去负责一些业务处理，比如取得连接、关闭数据库连接、事务回滚,一些复杂的逻辑业务处理就放到service层。
+DAO层：负责访问数据库进行数据的操作，取得结果集，之后将结果集中的数据取出封装到VO类对象之后返回给service层。数据层，直接进行数据库的读写操作，返回数据对象DO，DO与数据库表一一对应。Dao的作用是封装对数据库的访问：增删改查，不涉及业务逻辑，只是达到按某个条件获得指定数据的要求。
+Cotroller层：叫做控制层，主要的功能是处理用户发送的请求。主要处理外部请求。调用service层，将service层返回的BO/DO转化为DTO/VO并封装成统一返回对象返回给调用方。如果返回数据用于前端模版渲染则返回VO，否则一般返回DTO。不论是DTO还是VO，一般都会对BO/DO中的数据进行一些转化和整合。
+View层：叫做显示层，主要是负责现实数据。
+在实际开发中dao层要先定义出自己的操作标准即标准接口，就是为了解耦合。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://IShowCode-xt.github.io/posts/s1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-05T12:35:53+08:00" />
+<meta property="article:modified_time" content="2022-09-05T12:35:53+08:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://IShowCode-xt.github.io"><img class="app-header-avatar" src="/lan.jpg" alt="Summer" /></a>
+      <h1>IShowCode</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>后端小白的混子日常</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/xt-summer" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://gitee.com/IShowMyCode" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <title>Gitee</title>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">超详细讲解SpringMVC三层架构</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 5, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://IShowCode-xt.github.io/tags/java/">Java</a>
+              <a class="tag" href="https://IShowCode-xt.github.io/tags/spring/">Spring</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="springmvc三层架构">SpringMVC三层架构</h1>
+<p>java SpringMVC的工程结构一般来说分为三层，自下而上是Modle层（模型，数据访问层）、Cotroller层（控制，逻辑控制层）、View层（视图，页面显示层），其中Modle层分为两层：dao层、service层，MVC架构分层的主要作用是解耦。采用分层架构的好处，普遍接受的是系统分层有利于系统的维护，系统的扩展。就是增强系统的可维护性和可扩展性。</p>
+<p>对于Spring这样的框架，（View\Web）表示层调用控制层（Controller），控制层调用业务层（Service），业务层调用数据访问层（Dao）。
+<img src="https://img-blog.csdnimg.cn/8c8833a9f8e6495c9dc85b68c9555d9d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述">
+service层：业务层，用来实现业务逻辑。能调用dao层或者service层，返回数据对象DO或者业务对象BO，BO通常由DO转化、整合而来，可以包含多个DO的属性，也可以是只包含一个DO的部分属性。通常为了简便，如果无需转化，service也可以直接返回DO。外部调用（HTTP、RPC）方法也在这一层，对于外部调用来说，service一般会将外部调用返回的DTO转化为BO。是专注业务逻辑，对于其中需要的数据库操作，都通过Dao去实现。主要去负责一些业务处理，比如取得连接、关闭数据库连接、事务回滚,一些复杂的逻辑业务处理就放到service层。</p>
+<p>DAO层：负责访问数据库进行数据的操作，取得结果集，之后将结果集中的数据取出封装到VO类对象之后返回给service层。数据层，直接进行数据库的读写操作，返回数据对象DO，DO与数据库表一一对应。Dao的作用是封装对数据库的访问：增删改查，不涉及业务逻辑，只是达到按某个条件获得指定数据的要求。</p>
+<p>Cotroller层：叫做控制层，主要的功能是处理用户发送的请求。主要处理外部请求。调用service层，将service层返回的BO/DO转化为DTO/VO并封装成统一返回对象返回给调用方。如果返回数据用于前端模版渲染则返回VO，否则一般返回DTO。不论是DTO还是VO，一般都会对BO/DO中的数据进行一些转化和整合。</p>
+<p>View层：叫做显示层，主要是负责现实数据。</p>
+<p>在实际开发中dao层要先定义出自己的操作标准即标准接口，就是为了解耦合。</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

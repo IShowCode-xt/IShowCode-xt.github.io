@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Jdk安装及配置最全教程 // IShowCode</title>
+    <link rel="shortcut icon" href="avatar.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.102.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Summer" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://IShowCode-xt.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Jdk安装及配置最全教程"/>
+<meta name="twitter:description" content="一、java 开发环境搭建 1.百度搜索JDK8,找到下载地址 2.选择对应版本 3.安装jdk 3.1首先点击下载的安装包 3.2进行下一步
+3.3下一步 3.4下一步
+可以更改JDK安装路径（记住此路径后面需要用到）
+3.5关闭
+到此JDK安装结束,点击关闭。
+4.配置环境变量 4.1 JDK环境变量配置
+右击我的电脑点击属性
+点击高级系统设置
+点击环境变量 点击新建系统变量
+变量名填入：JAVA_HOME
+变量值为你安装JDK的路径
+然后点击确定
+继续新建系统变量
+变量名：CLASSPATH
+值：,;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+然后点击确定。
+在系统变量找到Path的变量 双击Path
+点击新建
+加入
+%JAVA_HOME%\bin
+%JAVA_HOME%\jre\bin
+5. JDK安装检测 打开电脑Cmd命令窗口
+输入 java –version
+然后回车会出现如图所示的JDK信息则说明JDK安装成功。"/>
+
+    <meta property="og:title" content="Jdk安装及配置最全教程" />
+<meta property="og:description" content="一、java 开发环境搭建 1.百度搜索JDK8,找到下载地址 2.选择对应版本 3.安装jdk 3.1首先点击下载的安装包 3.2进行下一步
+3.3下一步 3.4下一步
+可以更改JDK安装路径（记住此路径后面需要用到）
+3.5关闭
+到此JDK安装结束,点击关闭。
+4.配置环境变量 4.1 JDK环境变量配置
+右击我的电脑点击属性
+点击高级系统设置
+点击环境变量 点击新建系统变量
+变量名填入：JAVA_HOME
+变量值为你安装JDK的路径
+然后点击确定
+继续新建系统变量
+变量名：CLASSPATH
+值：,;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+然后点击确定。
+在系统变量找到Path的变量 双击Path
+点击新建
+加入
+%JAVA_HOME%\bin
+%JAVA_HOME%\jre\bin
+5. JDK安装检测 打开电脑Cmd命令窗口
+输入 java –version
+然后回车会出现如图所示的JDK信息则说明JDK安装成功。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://IShowCode-xt.github.io/posts/j0/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-05T12:35:53+08:00" />
+<meta property="article:modified_time" content="2022-09-05T12:35:53+08:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://IShowCode-xt.github.io"><img class="app-header-avatar" src="/lan.jpg" alt="Summer" /></a>
+      <h1>IShowCode</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>后端小白的混子日常</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/xt-summer" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://gitee.com/IShowMyCode" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <title>Gitee</title>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Jdk安装及配置最全教程</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 5, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://IShowCode-xt.github.io/tags/java/">Java</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="一java-开发环境搭建">一、java 开发环境搭建</h1>
+<h2 id="1百度搜索jdk8找到下载地址">1.百度搜索JDK8,找到下载地址</h2>
+<p><img src="https://img-blog.csdnimg.cn/66567c014cca4aafb942ea02ee73dba8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="2选择对应版本">2.选择对应版本</h2>
+<p><img src="https://img-blog.csdnimg.cn/378f8287e9724617b4ca6549b3b68e27.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="3安装jdk">3.安装jdk</h2>
+<p>3.1首先点击下载的安装包
+<img src="https://img-blog.csdnimg.cn/85f9d45f17d245ecac521581cd5f7d61.png#pic_center" alt="在这里插入图片描述"></p>
+<p>3.2进行下一步</p>
+<p><img src="https://img-blog.csdnimg.cn/4b8a3c42572c42b0afc3f0c56185c235.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>3.3下一步
+<img src="https://img-blog.csdnimg.cn/b6487ea2a2a442ff9d0080007ea131c3.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_18,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>3.4下一步</p>
+<p><img src="https://img-blog.csdnimg.cn/5269544e84b04e46a6d40b7e6c6f2503.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>可以更改JDK安装路径（记住此路径后面需要用到）</p>
+<p>3.5关闭</p>
+<p><img src="https://img-blog.csdnimg.cn/ddb929d8702d442580714358f8a99fea.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_18,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>到此JDK安装结束,点击关闭。</p>
+<h2 id="4配置环境变量">4.配置环境变量</h2>
+<p>4.1 JDK环境变量配置</p>
+<p><img src="https://img-blog.csdnimg.cn/d988a19da2374516a08a3657575cf720.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_12,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>右击我的电脑点击属性</p>
+<p><img src="https://img-blog.csdnimg.cn/e485831cc1724cddaa8eb5583955340a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>点击高级系统设置</p>
+<p><img src="https://img-blog.csdnimg.cn/f433b8f1191e40a3a3bfa3ead8129908.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_17,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>点击环境变量
+<img src="https://img-blog.csdnimg.cn/70fe124872774a6f8da631b8f874bb2d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>点击新建系统变量</p>
+<p><img src="https://img-blog.csdnimg.cn/c28badeedfe34de7a861b53adaa23c04.png#pic_center" alt="在这里插入图片描述"></p>
+<p>变量名填入：JAVA_HOME</p>
+<p>变量值为你安装JDK的路径</p>
+<p>然后点击确定</p>
+<p>继续新建系统变量</p>
+<p><img src="https://img-blog.csdnimg.cn/65eb8cbc2dea47de8e7f649d43df8ce7.png#pic_center" alt="在这里插入图片描述"></p>
+<p>变量名：CLASSPATH</p>
+<p>值：,;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</p>
+<p>然后点击确定。</p>
+<p>在系统变量找到Path的变量
+<img src="https://img-blog.csdnimg.cn/e9f4ce99aa5f421488c659a1965cad86.png#pic_center" alt="在这里插入图片描述"></p>
+<p>双击Path</p>
+<p><img src="https://img-blog.csdnimg.cn/9608def78d364774954ca766bf5f3dad.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>点击新建</p>
+<p><img src="https://img-blog.csdnimg.cn/29bd3288e7e94c81880bdcbc8c17c848.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>加入</p>
+<p>%JAVA_HOME%\bin</p>
+<p>%JAVA_HOME%\jre\bin</p>
+<h2 id="5-jdk安装检测">5. JDK安装检测</h2>
+<p><img src="https://img-blog.csdnimg.cn/ba1da127be8d4cbdad11aab3f9b02e92.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>打开电脑Cmd命令窗口</p>
+<p><img src="https://img-blog.csdnimg.cn/1283c13add614ed4993a8f36b8e2f051.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAVGlhbi5Y44CB,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>输入 java –version</p>
+<p>然后回车会出现如图所示的JDK信息则说明JDK安装成功。</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
