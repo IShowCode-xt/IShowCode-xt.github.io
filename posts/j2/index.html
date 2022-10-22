@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>java语言基础篇(上) // IShowCode</title>
+    <link rel="shortcut icon" href="avatar.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.102.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Summer" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://IShowCode-xt.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="java语言基础篇(上)"/>
+<meta name="twitter:description" content="Java基本语法 1.关键字与保留字 1.1关键字(keyword)的定义和特点 定义:被Java语言赋予了特殊含义，用做专门用途的字符串（单词） 特点：关键字中所有字母都为小写 官方地址(点击跳转) 1.2保留字(reserved word) Java保留字：现有Java版本尚未使用，但以后版本可能会作为关键字使用。自己命名标识符时要避免使用这些保留字。goto 、const
+1.3标识符(Identifier) 标识符： Java 对各种变量、方法和类等要素命名时使用的字符序列称为标识符。 技巧：凡是自己可以起名字的地方都叫标识符。 定义合法标识符规则： 由26个英文字母大小写，0-9 ，_或 $ 组成 数字不可以开头。 不可以使用关键字和保留字，但能包含关键字和保留字。 Java中严格区分大小写，长度无限制。 标识符不能包含空格。 1.4Java中的名称命名规范： 包名：多单词组成时所有字母都小写：xxxyyyzzz 类名、接口名：多单词组成时，所有单词的首字母大写：XxxYyyZzz 变量名、方法名：多单词组成时，第一个单词首字母小写，第二个单词开始每个单词首字母大写：xxxYyyZzz 常量名：所有字母都大写。多单词时每个单词用下划线连接：XXX_YYY_ZZZ 2. 变量 2.1变量的概念： 内存中的一个存储区域 该区域的数据可以在同一类型范围内不断变化 变量是程序中最基本的存储单元。包含变量类型、变量名和存储的值 2.2变量的作用： 用于在内存中保存数据 2.3使用变量注意： Java中每个变量必须先声明，后使用 使用变量名来访问这块区域的数据 变量的作用域：其定义所在的一对{ }内 变量只有在其作用域内才有效 同一个作用域内，不能定义重名的变量 2.4声明变量 语法：&lt;数据类型&gt; &lt;变量名称&gt; 例如：int var; 2.5变量的赋值 语法：&lt;变量名称&gt; = &lt;值&gt; 例如：var = 10; 2.6声明和赋值变量 语法： &lt;数据类型&gt; &lt;变量名&gt; = &lt;初始化值&gt; 例如：int var = 10; 2.7变量的分类-按数据类型 对于每一种数据都定义了明确的具体数据类型（强类型语言），在内存中分配了不同大小的内存空间。 补充：变量的分类-按声明的位置的不同 在方法体外，类体内声明的变量称为成员变量。 在方法体内部声明的变量称为局部变量。 注意：二者在初始化值方面的异同 同：都有生命周期 异：局部变量除形参外，需显式初始化 2."/>
+
+    <meta property="og:title" content="java语言基础篇(上)" />
+<meta property="og:description" content="Java基本语法 1.关键字与保留字 1.1关键字(keyword)的定义和特点 定义:被Java语言赋予了特殊含义，用做专门用途的字符串（单词） 特点：关键字中所有字母都为小写 官方地址(点击跳转) 1.2保留字(reserved word) Java保留字：现有Java版本尚未使用，但以后版本可能会作为关键字使用。自己命名标识符时要避免使用这些保留字。goto 、const
+1.3标识符(Identifier) 标识符： Java 对各种变量、方法和类等要素命名时使用的字符序列称为标识符。 技巧：凡是自己可以起名字的地方都叫标识符。 定义合法标识符规则： 由26个英文字母大小写，0-9 ，_或 $ 组成 数字不可以开头。 不可以使用关键字和保留字，但能包含关键字和保留字。 Java中严格区分大小写，长度无限制。 标识符不能包含空格。 1.4Java中的名称命名规范： 包名：多单词组成时所有字母都小写：xxxyyyzzz 类名、接口名：多单词组成时，所有单词的首字母大写：XxxYyyZzz 变量名、方法名：多单词组成时，第一个单词首字母小写，第二个单词开始每个单词首字母大写：xxxYyyZzz 常量名：所有字母都大写。多单词时每个单词用下划线连接：XXX_YYY_ZZZ 2. 变量 2.1变量的概念： 内存中的一个存储区域 该区域的数据可以在同一类型范围内不断变化 变量是程序中最基本的存储单元。包含变量类型、变量名和存储的值 2.2变量的作用： 用于在内存中保存数据 2.3使用变量注意： Java中每个变量必须先声明，后使用 使用变量名来访问这块区域的数据 变量的作用域：其定义所在的一对{ }内 变量只有在其作用域内才有效 同一个作用域内，不能定义重名的变量 2.4声明变量 语法：&lt;数据类型&gt; &lt;变量名称&gt; 例如：int var; 2.5变量的赋值 语法：&lt;变量名称&gt; = &lt;值&gt; 例如：var = 10; 2.6声明和赋值变量 语法： &lt;数据类型&gt; &lt;变量名&gt; = &lt;初始化值&gt; 例如：int var = 10; 2.7变量的分类-按数据类型 对于每一种数据都定义了明确的具体数据类型（强类型语言），在内存中分配了不同大小的内存空间。 补充：变量的分类-按声明的位置的不同 在方法体外，类体内声明的变量称为成员变量。 在方法体内部声明的变量称为局部变量。 注意：二者在初始化值方面的异同 同：都有生命周期 异：局部变量除形参外，需显式初始化 2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://IShowCode-xt.github.io/posts/j2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-22T16:37:53+08:00" />
+<meta property="article:modified_time" content="2022-10-22T16:37:53+08:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://IShowCode-xt.github.io"><img class="app-header-avatar" src="/lan.jpg" alt="Summer" /></a>
+      <h1>IShowCode</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>后端小白的混子日常</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/IShowCode-xt" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://gitee.com/IShowMyCode" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <title>Gitee</title>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">java语言基础篇(上)</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Oct 22, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://IShowCode-xt.github.io/tags/java/">Java</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="java基本语法">Java基本语法</h1>
+<h2 id="1关键字与保留字">1.关键字与保留字</h2>
+<h3 id="11关键字keyword的定义和特点">1.1关键字(keyword)的定义和特点</h3>
+<ul>
+<li>定义:被Java语言赋予了特殊含义，用做专门用途的字符串（单词）</li>
+<li>特点：关键字中所有字母都为小写</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html">官方地址(点击跳转)</a></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/3ce64820e49d4fdd850bd4ffc507dcec.png#pic_center" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/df2975364ed546c6ae0cdfdc346c0b7e.png#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="12保留字reserved-word">1.2保留字(reserved word)</h3>
+<p>Java保留字：现有Java版本尚未使用，但以后版本可能会作为关键字使用。自己命名标识符时要避免使用这些保留字。goto 、const</p>
+<h2 id="13标识符identifier">1.3标识符(Identifier)</h2>
+<h3 id="标识符">标识符：</h3>
+<ul>
+<li>Java 对各种变量、方法和类等要素命名时使用的字符序列称为标识符。</li>
+<li>技巧：凡是自己可以起名字的地方都叫标识符。</li>
+</ul>
+<h3 id="定义合法标识符规则">定义合法标识符规则：</h3>
+<ul>
+<li>由26个英文字母大小写，0-9 ，_或 $ 组成</li>
+<li>数字不可以开头。</li>
+<li>不可以使用关键字和保留字，但能包含关键字和保留字。</li>
+<li>Java中严格区分大小写，长度无限制。</li>
+<li>标识符不能包含空格。</li>
+</ul>
+<h3 id="14java中的名称命名规范">1.4Java中的名称命名规范：</h3>
+<ul>
+<li>包名：多单词组成时所有字母都小写：xxxyyyzzz</li>
+<li>类名、接口名：多单词组成时，所有单词的首字母大写：XxxYyyZzz</li>
+<li>变量名、方法名：多单词组成时，第一个单词首字母小写，第二个单词开始每个单词首字母大写：xxxYyyZzz</li>
+<li>常量名：所有字母都大写。多单词时每个单词用下划线连接：XXX_YYY_ZZZ</li>
+</ul>
+<h2 id="2-变量">2. 变量</h2>
+<h3 id="21变量的概念">2.1变量的概念：</h3>
+<ul>
+<li>内存中的一个存储区域</li>
+<li>该区域的数据可以在同一类型范围内不断变化</li>
+<li>变量是程序中最基本的存储单元。包含变量类型、变量名和存储的值</li>
+</ul>
+<h3 id="22变量的作用">2.2变量的作用：</h3>
+<ul>
+<li>用于在内存中保存数据</li>
+</ul>
+<h3 id="23使用变量注意">2.3使用变量注意：</h3>
+<ul>
+<li>Java中每个变量必须先声明，后使用</li>
+<li>使用变量名来访问这块区域的数据</li>
+<li>变量的作用域：其定义所在的一对{ }内</li>
+<li>变量只有在其作用域内才有效</li>
+<li>同一个作用域内，不能定义重名的变量</li>
+</ul>
+<h3 id="24声明变量">2.4声明变量</h3>
+<ul>
+<li>语法：&lt;数据类型&gt; &lt;变量名称&gt;</li>
+<li>例如：int var;</li>
+</ul>
+<h3 id="25变量的赋值">2.5变量的赋值</h3>
+<ul>
+<li>语法：&lt;变量名称&gt; = &lt;值&gt;</li>
+<li>例如：var = 10;</li>
+</ul>
+<h3 id="26声明和赋值变量">2.6声明和赋值变量</h3>
+<ul>
+<li>语法： &lt;数据类型&gt; &lt;变量名&gt; = &lt;初始化值&gt;</li>
+<li>例如：int var = 10;</li>
+</ul>
+<h3 id="27变量的分类-按数据类型">2.7变量的分类-按数据类型</h3>
+<ul>
+<li>对于每一种数据都定义了明确的具体数据类型（强类型语言），在内存中分配了不同大小的内存空间。
+<img src="https://img-blog.csdnimg.cn/4c840664a60c470fad9235666174f87a.png#pic_center" alt="在这里插入图片描述"></li>
+<li>补充：变量的分类-按声明的位置的不同</li>
+<li>在方法体外，类体内声明的变量称为成员变量。</li>
+<li>在方法体内部声明的变量称为局部变量。
+<img src="https://img-blog.csdnimg.cn/875b5ffc9f374a8dac8aa56d58d76d3e.png#pic_center" alt="在这里插入图片描述"></li>
+<li>注意：二者在初始化值方面的异同</li>
+<li>同：都有生命周期     异：局部变量除形参外，需显式初始化</li>
+</ul>
+<h3 id="28整数类型byteshortintlong">2.8整数类型：byte、short、int、long</h3>
+<ul>
+<li>Java各整数类型有固定的表数范围和字段长度，不受具体OS的影响，以保证java程序的可移植性。</li>
+<li>java的整型常量默认为 int 型，声明long型常量须后加‘l’或‘L’</li>
+<li>java程序中变量通常声明为int型，除非不足以表示较大的数，才使用long
+<img src="https://img-blog.csdnimg.cn/a957c7a81cd543d08c881a6d03193bb1.png#pic_center" alt="在这里插入图片描述"></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VariableTest</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">int</span> number1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> number1 <span style="color:#f92672">=</span> 10<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">int</span> number2<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> number2 <span style="color:#f92672">=</span> 20<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">int</span> number3<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> number3 <span style="color:#f92672">=</span> number1 <span style="color:#f92672">+</span> number2<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Number3 = &#34;</span> <span style="color:#f92672">+</span> number3<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">int</span> number4 <span style="color:#f92672">=</span> 50<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">int</span> number5 <span style="color:#f92672">=</span> number4 <span style="color:#f92672">-</span> number3<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Number5 = &#34;</span> <span style="color:#f92672">+</span> number5<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="29浮点类型floatdouble">2.9浮点类型：float、double</h3>
+<ol>
+<li>与整数类型类似，Java 浮点类型也有固定的表数范围和字段长度，不受具体操作系统的影响。</li>
+<li>浮点型常量有两种表示形式：</li>
+</ol>
+<ul>
+<li>十进制数形式：如：5.12 512.0f .512 (必须有小数点）</li>
+<li>科学计数法形式:如：5.12e2 512E2 100E-2</li>
+</ul>
+<ol start="3">
+<li>float:单精度，尾数可以精确到7位有效数字。很多情况下，精度很难满 足需求。double:双精度，精度是float的两倍。通常采用此类型。</li>
+<li>Java 的浮点型常量默认为double型，声明float型常量，须后加‘f’或‘F’。
+<img src="https://img-blog.csdnimg.cn/4cc6eaf42aff489d94b0a5c8a35f24d2.png#pic_center" alt="在这里插入图片描述"></li>
+</ol>
+<h3 id="210-字符类型char">2.10 字符类型：char</h3>
+<ul>
+<li>char 型数据用来表示通常意义上“字符”(2字节)</li>
+<li>Java中的所有字符都使用Unicode编码，故一个字符可以存储一个字
+母，一个汉字，或其他书面语的一个字符。</li>
+<li>字符型变量的三种表现形式：</li>
+</ul>
+<ol>
+<li>字符常量是用单引号(‘ ’)括起来的单个字符。例如：char c1 = &lsquo;a&rsquo;; char c2= &lsquo;中&rsquo;; char c3 = &lsquo;9&rsquo;;</li>
+<li>Java中还允许使用转义字符‘\’来将其后的字符转变为特殊字符型常量。
+例如：char c3 = ‘\n’; // &lsquo;\n&rsquo;表示换行符</li>
+<li>直接使用 Unicode 值来表示字符型常量：‘\uXXXX’。其中，XXXX代表
+一个十六进制整数。如：\u000a 表示 \n。</li>
+</ol>
+<ul>
+<li>char类型是可以进行运算的。因为它都对应有Unicode码。</li>
+</ul>
+<h3 id="211布尔类型boolean">2.11布尔类型：boolean</h3>
+<ul>
+<li>boolean 类型用来判断逻辑条件，一般用于程序流程控制：</li>
+<li>if条件控制语句；
+while循环控制语句；
+do-while循环控制语句；
+for循环控制语句；</li>
+<li>boolean类型数据只允许取值true和false，无null。</li>
+</ul>
+<ol>
+<li>不可以使用0或非 0 的整数替代false和true，这点和C语言不同。</li>
+<li>Java虚拟机中没有任何供boolean值专用的字节码指令，Java语言表达所操作的boolean值，在编译之后都使用java虚拟机中的int数据类型来代替：true用1表示，false用0表示。———《java虚拟机规范 8版》</li>
+</ol>
+<h3 id="212基本数据类型转换">2.12基本数据类型转换</h3>
+<ul>
+<li>自动类型转换：容量小的类型自动转换为容量大的数据类型。数据类型按容量大小排序为：
+-<img src="https://img-blog.csdnimg.cn/02ea049549174f72a75965551f920026.png#pic_center" alt="在这里插入图片描述"></li>
+<li>有多种类型的数据混合运算时，系统首先自动将所有数据转换成容量最大的那种数据类型，然后再进行计算。</li>
+<li>byte,short,char之间不会相互转换，他们三者在计算时首先转换为int类型。</li>
+<li>boolean类型不能与其它数据类型运算。</li>
+<li>当把任何基本数据类型的值和字符串(String)进行连接运算时(+)，基本数据类型的值将自动转化为字符串(String)类型。</li>
+</ul>
+<h3 id="213字符串类型string">2.13字符串类型：String</h3>
+<ul>
+<li>String不是基本数据类型，属于引用数据类型</li>
+<li>使用方式与基本数据类型一致。例如：String str = “abcd”;</li>
+<li>一个字符串可以串接另一个字符串，也可以直接串接其他类型的数据。例如：str = str + “xyz” ; int n = 100; str = str + n</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StringTest</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">int</span> no <span style="color:#f92672">=</span> 10<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> String str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abcdef&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> String str1 <span style="color:#f92672">=</span> str <span style="color:#f92672">+</span> <span style="color:#960050;background-color:#1e0010">“</span>xyz<span style="color:#960050;background-color:#1e0010">”</span> <span style="color:#f92672">+</span> no<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> str1 <span style="color:#f92672">=</span> str1 <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;123&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">char</span> c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;国&#39;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">double</span> pi <span style="color:#f92672">=</span> 3<span style="color:#f92672">.</span><span style="color:#a6e22e">1416</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> str1 <span style="color:#f92672">=</span> str1 <span style="color:#f92672">+</span> pi<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">boolean</span> b <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> str1 <span style="color:#f92672">=</span> str1 <span style="color:#f92672">+</span> b<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span> str1 <span style="color:#f92672">=</span> str1 <span style="color:#f92672">+</span> c<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;str1 = &#34;</span> <span style="color:#f92672">+</span> str1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="214强制类型转换">2.14强制类型转换</h3>
+<ul>
+<li>自动类型转换的逆过程，将容量大的数据类型转换为容量小的数据类型。使用时要加上强制转换符：()，但可能造成精度降低或溢出,格外要注意。</li>
+<li>通常，字符串不能直接转换为基本类型，但通过基本类型对应的包装类则可以实现把字符串转换成基本类型。</li>
+<li>如：String a = “43”; int i = Integer.parseInt(a);</li>
+<li>boolean类型不可以转换为其它的数据类型。</li>
+</ul>
+<h2 id="3运算符">3.运算符</h2>
+<ul>
+<li>运算符是一种特殊的符号，用以表示数据的运算、赋值和比较等。</li>
+<li>算术运算符
+赋值运算符
+比较运算符（关系运算符）
+逻辑运算符
+位运算符
+三元运算符</li>
+</ul>
+<h3 id="31运算符算术运算符">3.1运算符：算术运算符</h3>
+<p><img src="https://img-blog.csdnimg.cn/717d5e2d2604429681bea2ddff83260a.png#pic_center" alt="在这里插入图片描述"></p>
+<ul>
+<li>算术运算符的注意问题</li>
+</ul>
+<ol>
+<li>如果对负数取模，可以把模数负号忽略不记，如：5%-2=1。 但被模数是负数则不可忽略。此外，取模运算的结果不一定总是整数。</li>
+<li>对于除号“/”，它的整数除和小数除是有区别的：整数之间做除法时，只保留整数部分而舍弃小数部分。</li>
+<li>“+”除字符串相加功能外，还能把非字符串转换成字符串。</li>
+</ol>
+<h3 id="32运算符赋值运算符">3.2运算符：赋值运算符</h3>
+<ul>
+<li>符号：=
+当“=”两侧数据类型不一致时，可以使用自动类型转换或使用强制
+类型转换原则进行处理。
+支持连续赋值。</li>
+<li>扩展赋值运算符： +=, -=, *=, /=, %=
+<img src="https://img-blog.csdnimg.cn/b40fca619a1f4562bffe1073a703a173.png#pic_center" alt="在这里插入图片描述"></li>
+<li>比较运算符的结果都是boolean型，也就是要么是true，要么是false。</li>
+<li>比较运算符“==”不能误写成“=” 。</li>
+</ul>
+<h3 id="33运算符逻辑运算符">3.3运算符：逻辑运算符</h3>
+<ul>
+<li>&amp;—逻辑与 | —逻辑或 ！—逻辑非
+&amp;&amp; —短路与 || —短路或 ^ —逻辑异或
+<img src="https://img-blog.csdnimg.cn/1a867ba759714575aa453fa1fc9570bf.png#pic_center" alt="在这里插入图片描述"></li>
+<li>逻辑运算符用于连接布尔型表达式，在Java中不可以写成3&lt;x&lt;6，应该写成x&gt;3 &amp; x&lt;6 。</li>
+<li>“&amp;”和“&amp;&amp;”的区别：
+单&amp;时，左边无论真假，右边都进行运算；
+双&amp;时，如果左边为真，右边参与运算，如果左边为假，那么右边不参与运算。</li>
+<li>“|”和“||”的区别同理，||表示：当左边为真，右边不参与运算。</li>
+<li>异或( ^ )与或( | )的不同之处是：当左右都为true时，结果为false。</li>
+<li>异或，追求的是“异”!（相同为0，不同为1）</li>
+</ul>
+<h3 id="34运算符位运算符">3.4运算符：位运算符</h3>
+<p><img src="https://img-blog.csdnimg.cn/36566944536f4540b97e1452b58c1050.png#pic_center" alt="在这里插入图片描述"></p>
+<ul>
+<li>位运算是直接对整数的二进制进行的运算</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/85efe68dc414478381f0aec3496d5798.png" alt="在这里插入图片描述"></p>
+<h3 id="35运算符三元运算符">3.5运算符：三元运算符</h3>
+<ul>
+<li>
+<p>格式:
+(条件表达式)?表达式1：表达式2；
+为true，运算后的结果是表达式1；
+为false，运算后的结果是表达式2；
+表达式1和表达式2为同种类型
+三元运算符与if-else的联系与区别：
+1）三元运算符可简化if-else语句
+2）三元运算符要求必须返回一个结果。
+3）if后的代码块可有多个语句</p>
+</li>
+<li>
+<p>运算符的优先级
+<img src="https://img-blog.csdnimg.cn/520b6269610c4dfa902dc28d0617badb.png" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
