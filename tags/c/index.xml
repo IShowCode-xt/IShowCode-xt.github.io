@@ -36,21 +36,6 @@ int arr1[10] = { 1,2,3 }; int arr2[] = { 1,2,3,4 }; int arr3[5] = { 1，2，3，
     </item>
     
     <item>
-      <title>IDEA错误：Cannot start compilation: the output path is not specified for module “Java“. Specify the out</title>
-      <link>https://IShowCode-xt.github.io/posts/j1/</link>
-      <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
-      
-      <guid>https://IShowCode-xt.github.io/posts/j1/</guid>
-      <description>idea 运行没有out文件夹 项目运行或出现这样的错误 其实这个错误是因为没有设置output的路径，只要修改两个地方的设置就可以了：
-1.点击idea左上角File
-2.选择Project Structure
-3.在Modules设置里勾选”Inherit project compile path”
-4.设置Project中的”Project compiler output”
-5.选择”Project的路径”+”\out”，比如说我的就是D:\ideaproject\javaSE\out
-将这两处改好后就能正常运行了。</description>
-    </item>
-    
-    <item>
       <title>深度分析数据在内存中的存储形式</title>
       <link>https://IShowCode-xt.github.io/posts/c1/</link>
       <pubDate>Mon, 05 Sep 2022 12:35:53 +0800</pubDate>
