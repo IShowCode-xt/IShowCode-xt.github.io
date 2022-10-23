@@ -5,7 +5,17 @@
     <link>https://IShowCode-xt.github.io/tags/java/</link>
     <description>Recent content in Java on IShowCode</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 05 Sep 2022 12:35:53 +0800</lastBuildDate><atom:link href="https://IShowCode-xt.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Oct 2022 15:00:53 +0800</lastBuildDate><atom:link href="https://IShowCode-xt.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>java语言基础篇(上)</title>
+      <link>https://IShowCode-xt.github.io/posts/j2/</link>
+      <pubDate>Sun, 23 Oct 2022 15:00:53 +0800</pubDate>
+      
+      <guid>https://IShowCode-xt.github.io/posts/j2/</guid>
+      <description>Java基本语法 1.关键字与保留字 1.1关键字(keyword)的定义和特点 定义:被Java语言赋予了特殊含义，用做专门用途的字符串（单词） 特点：关键字中所有字母都为小写 官方地址(点击跳转) 1.2保留字(reserved word) Java保留字：现有Java版本尚未使用，但以后版本可能会作为关键字使用。自己命名标识符时要避免使用这些保留字。goto 、const
+1.3标识符(Identifier) 标识符： Java 对各种变量、方法和类等要素命名时使用的字符序列称为标识符。 技巧：凡是自己可以起名字的地方都叫标识符。 定义合法标识符规则： 由26个英文字母大小写，0-9 ，_或 $ 组成 数字不可以开头。 不可以使用关键字和保留字，但能包含关键字和保留字。 Java中严格区分大小写，长度无限制。 标识符不能包含空格。 1.4Java中的名称命名规范： 包名：多单词组成时所有字母都小写：xxxyyyzzz 类名、接口名：多单词组成时，所有单词的首字母大写：XxxYyyZzz 变量名、方法名：多单词组成时，第一个单词首字母小写，第二个单词开始每个单词首字母大写：xxxYyyZzz 常量名：所有字母都大写。多单词时每个单词用下划线连接：XXX_YYY_ZZZ 2. 变量 2.1变量的概念： 内存中的一个存储区域 该区域的数据可以在同一类型范围内不断变化 变量是程序中最基本的存储单元。包含变量类型、变量名和存储的值 2.2变量的作用： 用于在内存中保存数据 2.3使用变量注意： Java中每个变量必须先声明，后使用 使用变量名来访问这块区域的数据 变量的作用域：其定义所在的一对{ }内 变量只有在其作用域内才有效 同一个作用域内，不能定义重名的变量 2.4声明变量 语法：&amp;lt;数据类型&amp;gt; &amp;lt;变量名称&amp;gt; 例如：int var; 2.5变量的赋值 语法：&amp;lt;变量名称&amp;gt; = &amp;lt;值&amp;gt; 例如：var = 10; 2.6声明和赋值变量 语法： &amp;lt;数据类型&amp;gt; &amp;lt;变量名&amp;gt; = &amp;lt;初始化值&amp;gt; 例如：int var = 10; 2.7变量的分类-按数据类型 对于每一种数据都定义了明确的具体数据类型（强类型语言），在内存中分配了不同大小的内存空间。 补充：变量的分类-按声明的位置的不同 在方法体外，类体内声明的变量称为成员变量。 在方法体内部声明的变量称为局部变量。 注意：二者在初始化值方面的异同 同：都有生命周期 异：局部变量除形参外，需显式初始化 2.</description>
+    </item>
+    
     <item>
       <title>Jdk安装及配置最全教程</title>
       <link>https://IShowCode-xt.github.io/posts/j0/</link>
@@ -157,16 +167,6 @@ DAO层：负责访问数据库进行数据的操作，取得结果集，之后�
 Cotroller层：叫做控制层，主要的功能是处理用户发送的请求。主要处理外部请求。调用service层，将service层返回的BO/DO转化为DTO/VO并封装成统一返回对象返回给调用方。如果返回数据用于前端模版渲染则返回VO，否则一般返回DTO。不论是DTO还是VO，一般都会对BO/DO中的数据进行一些转化和整合。
 View层：叫做显示层，主要是负责现实数据。
 在实际开发中dao层要先定义出自己的操作标准即标准接口，就是为了解耦合。</description>
-    </item>
-    
-    <item>
-      <title>java语言基础篇(上)</title>
-      <link>https://IShowCode-xt.github.io/posts/j2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://IShowCode-xt.github.io/posts/j2/</guid>
-      <description>Java基本语法 1.关键字与保留字 1.1关键字(keyword)的定义和特点 定义:被Java语言赋予了特殊含义，用做专门用途的字符串（单词） 特点：关键字中所有字母都为小写 官方地址(点击跳转) 1.2保留字(reserved word) Java保留字：现有Java版本尚未使用，但以后版本可能会作为关键字使用。自己命名标识符时要避免使用这些保留字。goto 、const
-1.3标识符(Identifier) 标识符： Java 对各种变量、方法和类等要素命名时使用的字符序列称为标识符。 技巧：凡是自己可以起名字的地方都叫标识符。 定义合法标识符规则： 由26个英文字母大小写，0-9 ，_或 $ 组成 数字不可以开头。 不可以使用关键字和保留字，但能包含关键字和保留字。 Java中严格区分大小写，长度无限制。 标识符不能包含空格。 1.4Java中的名称命名规范： 包名：多单词组成时所有字母都小写：xxxyyyzzz 类名、接口名：多单词组成时，所有单词的首字母大写：XxxYyyZzz 变量名、方法名：多单词组成时，第一个单词首字母小写，第二个单词开始每个单词首字母大写：xxxYyyZzz 常量名：所有字母都大写。多单词时每个单词用下划线连接：XXX_YYY_ZZZ 2. 变量 2.1变量的概念： 内存中的一个存储区域 该区域的数据可以在同一类型范围内不断变化 变量是程序中最基本的存储单元。包含变量类型、变量名和存储的值 2.2变量的作用： 用于在内存中保存数据 2.3使用变量注意： Java中每个变量必须先声明，后使用 使用变量名来访问这块区域的数据 变量的作用域：其定义所在的一对{ }内 变量只有在其作用域内才有效 同一个作用域内，不能定义重名的变量 2.4声明变量 语法：&amp;lt;数据类型&amp;gt; &amp;lt;变量名称&amp;gt; 例如：int var; 2.5变量的赋值 语法：&amp;lt;变量名称&amp;gt; = &amp;lt;值&amp;gt; 例如：var = 10; 2.6声明和赋值变量 语法： &amp;lt;数据类型&amp;gt; &amp;lt;变量名&amp;gt; = &amp;lt;初始化值&amp;gt; 例如：int var = 10; 2.7变量的分类-按数据类型 对于每一种数据都定义了明确的具体数据类型（强类型语言），在内存中分配了不同大小的内存空间。 补充：变量的分类-按声明的位置的不同 在方法体外，类体内声明的变量称为成员变量。 在方法体内部声明的变量称为局部变量。 注意：二者在初始化值方面的异同 同：都有生命周期 异：局部变量除形参外，需显式初始化 2.</description>
     </item>
     
   </channel>
