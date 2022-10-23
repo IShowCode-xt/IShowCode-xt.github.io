@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://IShowCode-xt.github.io/tags/go/</loc>
+    <lastmod>2022-10-23T15:00:53+08:00</lastmod>
+  </url><url>
+    <loc>https://IShowCode-xt.github.io/posts/go_01/</loc>
+    <lastmod>2022-10-23T15:00:53+08:00</lastmod>
+  </url><url>
     <loc>https://IShowCode-xt.github.io/</loc>
     <lastmod>2022-10-23T15:00:53+08:00</lastmod>
   </url><url>
@@ -65,9 +71,5 @@
     <loc>https://IShowCode-xt.github.io/about/</loc>
   </url><url>
     <loc>https://IShowCode-xt.github.io/categories/</loc>
-  </url><url>
-    <loc>https://IShowCode-xt.github.io/tags/go/</loc>
-  </url><url>
-    <loc>https://IShowCode-xt.github.io/posts/go_01/</loc>
   </url>
 </urlset>
