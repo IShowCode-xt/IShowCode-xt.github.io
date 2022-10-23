@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Go变量语法基础篇 // IShowCode</title>
+    <link rel="shortcut icon" href="avatar.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.102.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Summer" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://IShowCode-xt.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go变量语法基础篇"/>
+<meta name="twitter:description" content="Golang变量 1.变量是程序的基本组成单位 不论是使用哪种高级程序语言编写程序,变量都是其程序的基本组成单位。 sum,sub 都是变量
+2.变量的介绍 2.1变量的概念 变量相当于内存中一个数据存储空间的表示，你可以把变量看做是一个房间的门牌号，通过门牌号我们可以找到房间，同样的道理，通过变量名可以访问到变量(值)。
+2.2变量的使用步骤 声明变量(也叫:定义变量) 非变量赋值 使用变量 2.3变量快速入门案例 输出： 2.4变量使用注意事项 变量表示内存中的一个存储区域 该区域有自己的名称（变量名）和类型（数据类型） 示意图： Golang 变量使用的三种方式 第一种：指定变量类型，声明后若不赋值，使用默认值 第二种：根据值自行判定变量类型(类型推导) 第三种：省略 var, 注意 :=左侧的变量不应该是已经声明过的，否则会导致编译错误 多变量声明 在编程中，有时我们需要一次性声明多个变量，Golang 也ᨀ供这样的语法举例说明: 如何一次性声明多个全局变量【在 go 中函数外部定义变量就是全局变量】： 该区域的数据值可以在同一类型范围内不断变化(重点) 变量在同一个作用域(在一个函数或者在代码块)内不能重名 变量=变量名&#43;值&#43;数据类型，这一点请大家注意，变量的三要素
+Golang 的变量如果没有赋初值，编译器会使用默认值, 比如 int 默认值 0 string 默认值为空串，小数默认为 0
+2.5变量的声明，初始化和赋值 2.6程序中 &#43;号的使用 当左右两边都是数值型时，则做加法运算 当左右两边都是字符串，则做字符串拼接 2.7数据类型的基本介绍 2.8整数类型 2.8.1基本介绍 简单的说，就是用于存放整数值的，比如 0, -1, 2345 等等。
+2.8.2整数的各个类型 int 的无符号的类型： int 的其它类型的说明: 2.8.4整型的使用细节 Golang 各整数类型分：有符号和无符号，int uint 的大小和系统有关。 Golang 的整型默认声明为 int 型 如何在程序查看某个变量的字节大小和数据类型 （使用较多） Golang 程序中整型变量在使用时，遵守保小不保大的原则，即：在保证程序正确运行下，尽量使用占用空间小的数据类型。【如：年龄】 bit: 计算机中的最小存储单位。byte:计算机中基本存储单元。[二进制再详细说] 1byte = 8 bit 2."/>
+
+    <meta property="og:title" content="Go变量语法基础篇" />
+<meta property="og:description" content="Golang变量 1.变量是程序的基本组成单位 不论是使用哪种高级程序语言编写程序,变量都是其程序的基本组成单位。 sum,sub 都是变量
+2.变量的介绍 2.1变量的概念 变量相当于内存中一个数据存储空间的表示，你可以把变量看做是一个房间的门牌号，通过门牌号我们可以找到房间，同样的道理，通过变量名可以访问到变量(值)。
+2.2变量的使用步骤 声明变量(也叫:定义变量) 非变量赋值 使用变量 2.3变量快速入门案例 输出： 2.4变量使用注意事项 变量表示内存中的一个存储区域 该区域有自己的名称（变量名）和类型（数据类型） 示意图： Golang 变量使用的三种方式 第一种：指定变量类型，声明后若不赋值，使用默认值 第二种：根据值自行判定变量类型(类型推导) 第三种：省略 var, 注意 :=左侧的变量不应该是已经声明过的，否则会导致编译错误 多变量声明 在编程中，有时我们需要一次性声明多个变量，Golang 也ᨀ供这样的语法举例说明: 如何一次性声明多个全局变量【在 go 中函数外部定义变量就是全局变量】： 该区域的数据值可以在同一类型范围内不断变化(重点) 变量在同一个作用域(在一个函数或者在代码块)内不能重名 变量=变量名&#43;值&#43;数据类型，这一点请大家注意，变量的三要素
+Golang 的变量如果没有赋初值，编译器会使用默认值, 比如 int 默认值 0 string 默认值为空串，小数默认为 0
+2.5变量的声明，初始化和赋值 2.6程序中 &#43;号的使用 当左右两边都是数值型时，则做加法运算 当左右两边都是字符串，则做字符串拼接 2.7数据类型的基本介绍 2.8整数类型 2.8.1基本介绍 简单的说，就是用于存放整数值的，比如 0, -1, 2345 等等。
+2.8.2整数的各个类型 int 的无符号的类型： int 的其它类型的说明: 2.8.4整型的使用细节 Golang 各整数类型分：有符号和无符号，int uint 的大小和系统有关。 Golang 的整型默认声明为 int 型 如何在程序查看某个变量的字节大小和数据类型 （使用较多） Golang 程序中整型变量在使用时，遵守保小不保大的原则，即：在保证程序正确运行下，尽量使用占用空间小的数据类型。【如：年龄】 bit: 计算机中的最小存储单位。byte:计算机中基本存储单元。[二进制再详细说] 1byte = 8 bit 2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://IShowCode-xt.github.io/posts/go_01/" /><meta property="article:section" content="posts" />
+
+
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://IShowCode-xt.github.io"><img class="app-header-avatar" src="/lan.jpg" alt="Summer" /></a>
+      <h1>IShowCode</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>后端小白的混子日常</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/IShowCode-xt" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://gitee.com/IShowMyCode" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <title>Gitee</title>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Go变量语法基础篇</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jan 1, 0001
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://IShowCode-xt.github.io/tags/go/">Go</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="golang变量">Golang变量</h1>
+<h2 id="1变量是程序的基本组成单位">1.变量是程序的基本组成单位</h2>
+<ul>
+<li>不论是使用哪种高级程序语言编写程序,变量都是其程序的基本组成单位。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/67e245fbda254f9db713e003ce573734.png" alt="sum,sub 都是变量">
+sum,sub 都是变量</p>
+<h2 id="2变量的介绍">2.变量的介绍</h2>
+<h3 id="21变量的概念">2.1变量的概念</h3>
+<p>变量相当于内存中一个数据存储空间的表示，你可以把变量看做是一个房间的门牌号，通过门牌号我们可以找到房间，同样的道理，通过变量名可以访问到变量(值)。</p>
+<h3 id="22变量的使用步骤">2.2变量的使用步骤</h3>
+<ul>
+<li>声明变量(也叫:定义变量)</li>
+<li>非变量赋值</li>
+<li>使用变量</li>
+</ul>
+<h3 id="23变量快速入门案例">2.3变量快速入门案例</h3>
+<p><img src="https://img-blog.csdnimg.cn/c3f1a894783a4317b850d8a210c9455b.png" alt="在这里插入图片描述">
+输出：
+<img src="https://img-blog.csdnimg.cn/664a479313984aee8fda9447947cf318.png" alt="在这里插入图片描述"></p>
+<h3 id="24变量使用注意事项">2.4变量使用注意事项</h3>
+<ul>
+<li>变量表示内存中的一个存储区域</li>
+<li>该区域有自己的名称（变量名）和类型（数据类型）
+示意图：
+<img src="https://img-blog.csdnimg.cn/6fff63ff30b3425c823a67c5b42f3801.png" alt="在这里插入图片描述"></li>
+<li>Golang 变量使用的三种方式</li>
+</ul>
+<ol>
+<li>
+<p>第一种：指定变量类型，声明后若不赋值，使用默认值
+<img src="https://img-blog.csdnimg.cn/1c736bf8a5a94031b0fce22690d4e7e5.png" alt="在这里插入图片描述"></p>
+</li>
+<li>
+<p>第二种：根据值自行判定变量类型(类型推导)
+<img src="https://img-blog.csdnimg.cn/7fc2e88efba14916a6e9c33b70e85c86.png" alt="在这里插入图片描述"></p>
+</li>
+<li>
+<p>第三种：省略 var, 注意 :=左侧的变量不应该是已经声明过的，否则会导致编译错误
+<img src="https://img-blog.csdnimg.cn/55661265bb084f4d8453a50f9f243aa0.png" alt="在这里插入图片描述"></p>
+</li>
+<li>
+<p>多变量声明
+在编程中，有时我们需要一次性声明多个变量，Golang 也ᨀ供这样的语法举例说明:
+<img src="https://img-blog.csdnimg.cn/bb8a17bde99e4274907d80769ff5926c.png#pic_center" alt="在这里插入图片描述">
+如何一次性声明多个全局变量【在 go 中函数外部定义变量就是全局变量】：
+<img src="https://img-blog.csdnimg.cn/4405812264784e9daee805ebaa2b0156.png#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li>
+<p>该区域的数据值可以在同一类型范围内不断变化(重点)
+<img src="https://img-blog.csdnimg.cn/58109d52bfbc40edb7a965fcfec18532.png#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li>
+<p>变量在同一个作用域(在一个函数或者在代码块)内不能重名
+<img src="https://img-blog.csdnimg.cn/f30934d298574d259ef92394cde7b73c.png#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li>
+<p>变量=变量名+值+数据类型，这一点请大家注意，变量的三要素</p>
+</li>
+<li>
+<p>Golang 的变量如果没有赋初值，编译器会使用默认值, 比如 int 默认值 0 string 默认值为空串，小数默认为 0</p>
+</li>
+</ol>
+<h2 id="25变量的声明初始化和赋值">2.5变量的声明，初始化和赋值</h2>
+<p><img src="https://img-blog.csdnimg.cn/8cee5a42f337430799ecf8b3f9ff6a21.png#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="26程序中-号的使用">2.6程序中 +号的使用</h3>
+<ol>
+<li>当左右两边都是数值型时，则做加法运算</li>
+<li>当左右两边都是字符串，则做字符串拼接
+<img src="https://img-blog.csdnimg.cn/4a49ab8007cf4612bbf24936fe746de2.png#pic_center" alt="在这里插入图片描述"></li>
+</ol>
+<h3 id="27数据类型的基本介绍">2.7数据类型的基本介绍</h3>
+<p><img src="https://img-blog.csdnimg.cn/e3a60ef10c0c406bb6713da74716fd25.png#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="28整数类型">2.8整数类型</h3>
+<h4 id="281基本介绍">2.8.1基本介绍</h4>
+<p>简单的说，就是用于存放整数值的，比如 0, -1, 2345 等等。</p>
+<h4 id="282整数的各个类型">2.8.2整数的各个类型</h4>
+<p><img src="https://img-blog.csdnimg.cn/d086b14382c24b169e229fe31a29e5f6.png" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/0eedeea25c0d431a84247f7c0d7d8d53.png" alt="在这里插入图片描述">
+int 的无符号的类型：
+<img src="https://img-blog.csdnimg.cn/edd7a338217d4e22a353420430cc894e.png" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/95f71834cacf4831b3c1c34c54bb7919.png" alt="在这里插入图片描述">
+int 的其它类型的说明:
+<img src="https://img-blog.csdnimg.cn/893a3221f1f542ca86f3443e44bc6798.png" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/c93fd5fa8d2146519195d8e91d02b5fd.png" alt="在这里插入图片描述"></p>
+<h4 id="284整型的使用细节">2.8.4整型的使用细节</h4>
+<ol>
+<li>Golang 各整数类型分：有符号和无符号，int uint 的大小和系统有关。</li>
+<li>Golang 的整型默认声明为 int 型
+<img src="https://img-blog.csdnimg.cn/f554d5ddebb14d8db3f741a7409872e3.png" alt="在这里插入图片描述"></li>
+<li>如何在程序查看某个变量的字节大小和数据类型 （使用较多）
+<img src="https://img-blog.csdnimg.cn/8228966a18f844b4b27eabd254235335.png" alt="在这里插入图片描述"></li>
+<li>Golang 程序中整型变量在使用时，遵守保小不保大的原则，即：在保证程序正确运行下，尽量使用占用空间小的数据类型。【如：年龄】
+<img src="https://img-blog.csdnimg.cn/e6cd06cfe1d0438ab37fcfcc86da12de.png" alt="在这里插入图片描述"></li>
+<li>bit: 计算机中的最小存储单位。byte:计算机中基本存储单元。[二进制再详细说] 1byte = 8 bit</li>
+</ol>
+<h3 id="29小数类型浮点型">2.9小数类型/浮点型</h3>
+<h4 id="291基本介绍">2.9.1基本介绍</h4>
+<p>小数类型就是用于存放小数的，比如 1.2 0.23 -1.911</p>
+<h4 id="292案例演示">2.9.2案例演示</h4>
+<p><img src="https://img-blog.csdnimg.cn/7e1b58c55b554f8fbe56d298acd738ac.png" alt="在这里插入图片描述"></p>
+<h4 id="293小数类型分类">2.9.3小数类型分类</h4>
+<p><img src="https://img-blog.csdnimg.cn/f4bba18727a5404f87e5f2477c46cdec.png" alt="在这里插入图片描述">
+对上图的说明:</p>
+<ol>
+<li>
+<p>关于浮点数在机器中存放形式的简单说明,浮点数=符号位+指数位+尾数位说明：浮点数都是有符号的.
+<img src="https://img-blog.csdnimg.cn/c909693888504f469fb3b5677bb9dfbb.png" alt="在这里插入图片描述"></p>
+</li>
+<li>
+<p>尾数部分可能丢失，造成精度损失。 -123.0000901
+<img src="https://img-blog.csdnimg.cn/4716fcfbd74c4483ae7e216bdc88c105.png" alt="在这里插入图片描述">
+说明：float64 的精度比 float32 的要准确.
+说明：如果我们要保存一个精度高的数，则应该选用 float64</p>
+</li>
+<li>
+<p>浮点型的存储分为三部分：符号位+指数位+尾数位 在存储过程中，精度会有丢失</p>
+</li>
+</ol>
+<h4 id="294浮点型使用细节">2.9.4浮点型使用细节</h4>
+<ol>
+<li>Golang 浮点类型有固定的范围和字段长度，不受具体 OS(操作系统)的影响。</li>
+<li>Golang 的浮点型默认声明为 float64 类型。
+<img src="https://img-blog.csdnimg.cn/8ab452d6145f497dbf4d5cea8850256b.png" alt="在这里插入图片描述"></li>
+<li>浮点型常量有两种表示形式
+十进制数形式：如：5.12 .512 (必须有小数点）
+科学计数法形式:如：5.1234e2 = 5.12 * 10 的 2 次方 5.12E-2 = 5.12/10 的 2 次方
+<img src="https://img-blog.csdnimg.cn/3559e2035db6421dbec5dcb4dac04006.png" alt="在这里插入图片描述"></li>
+<li>通常情况下，应该使用 float64 ，因为它比 float32 更精确。[开发中，推荐使用 float64]</li>
+</ol>
+<h3 id="210字符类型">2.10字符类型</h3>
+<h4 id="2101基本介绍">2.10.1基本介绍</h4>
+<p>Golang 中没有专门的字符类型，如果要存储单个字符(字母)，一般使用 byte 来保存。
+字符串就是一串固定长度的字符连接起来的字符序列。Go 的字符串是由单个字节连接起来的。也就是说对于传统的字符串是由字符组成的，而 Go 的字符串不同，它是由字节组成的。</p>
+<h4 id="2102案例演示">2.10.2案例演示</h4>
+<p><img src="https://img-blog.csdnimg.cn/e28ba59c9cfd435191d512a60d564adb.png" alt="在这里插入图片描述"></p>
+<p>对上面代码说明</p>
+<ol>
+<li>如果我们保存的字符在 ASCII 表的,比如[0-1, a-z,A-Z..]直接可以保存到 byte</li>
+<li>如果我们保存的字符对应码值大于 255,这时我们可以考虑使用 int 类型保存</li>
+<li>如果我们需要安装字符的方式输出，这时我们需要格式化输出，即 fmt.Printf(“%c”, c1)..</li>
+</ol>
+<h4 id="2103字符类型使用细节">2.10.3字符类型使用细节</h4>
+<ol>
+<li>字符常量是用单引号(&rsquo;&rsquo;)括起来的单个字符。例如：var c1 byte = &lsquo;a&rsquo; var c2 int = &lsquo;中&rsquo; var c3 byte = &lsquo;9&rsquo;</li>
+<li>Go 中允许使用转义字符 &lsquo;\’来将其后的字符转变为特殊字符型常量。例如：var c3 char = ‘\n’  // &lsquo;\n&rsquo;表示换行符</li>
+<li>Go 语 言 的 字 符 使 用 UTF-8 编 码 ， 如 果 想 查 询 字 符 对 应 的 utf8 码 值http://www.mytju.com/classcode/tools/encode_utf8.asp
+英文字母-1 个字节 汉字-3 个字节</li>
+<li>在 Go 中，字符的本质是一个整数，直接输出时，是该字符对应的 UTF-8 编码的码值。</li>
+<li>可以直接给某个变量赋一个数字，然后按格式化输出时%c，会输出该数字对应的 unicode 字符
+<img src="https://img-blog.csdnimg.cn/38faba22d1224192bde66c093bce0960.png" alt="在这里插入图片描述"></li>
+<li>字符类型是可以进行运算的，相当于一个整数，因为它都对应有 Unicode 码</li>
+</ol>
+<h4 id="2104字符类型本质探讨">2.10.4字符类型本质探讨</h4>
+<ol>
+<li>字符型 存储到 计算机中，需要将字符对应的码值（整数）找出来
+存储：字符&mdash;&gt;对应码值&mdash;-&gt;二进制&ndash;&gt;存储
+读取：二进制&mdash;-&gt; 码值 &mdash;-&gt; 字符 &ndash;&gt; 读取</li>
+<li>字符和码值的对应关系是通过字符编码表决定的(是规定好)</li>
+<li>Go 语言的编码都统一成了 utf-8。非常的方便，很统一，再也没有编码乱码的困扰了</li>
+</ol>
+<h3 id="211布尔类型">2.11布尔类型</h3>
+<h4 id="2111基本介绍">2.11.1基本介绍</h4>
+<ol>
+<li>布尔类型也叫 bool 类型，bool 类型数据只允许取值 true 和 false</li>
+<li>bool 类型占 1 个字节。</li>
+<li>bool 类型适于逻辑运算，一般用于程序流程控制[注：这个后面会详细介绍]：</li>
+</ol>
+<ul>
+<li>if 条件控制语句；</li>
+<li>for 循环控制语句</li>
+</ul>
+<h4 id="2112案例演示">2.11.2案例演示</h4>
+<p><img src="https://img-blog.csdnimg.cn/bc79c68f4547401a8aa04cd9ca3b0798.png" alt="在这里插入图片描述"></p>
+<h3 id="212string-类型">2.12string 类型</h3>
+<h4 id="2121基本介绍">2.12.1基本介绍</h4>
+<p>字符串就是一串固定长度的字符连接起来的字符序列。Go 的字符串是由单个字节连接起来的。Go语言的字符串的字节使用 UTF-8 编码标识 Unicode 文本</p>
+<h4 id="2122案例演示">2.12.2案例演示</h4>
+<p><img src="https://img-blog.csdnimg.cn/e782508ada424feda40162941524ae6a.png" alt="在这里插入图片描述"></p>
+<h4 id="2123string-使用注意事项和细节">2.12.3string 使用注意事项和细节</h4>
+<ol>
+<li>Go 语言的字符串的字节使用 UTF-8 编码标识 Unicode 文本，这样 Golang 统一使用 UTF-8 编码,中文
+乱码问题不会再困扰程序员。</li>
+<li>字符串一旦赋值了，字符串就不能修改了：在 Go 中字符串是不可变的。
+<img src="https://img-blog.csdnimg.cn/1e5fc9f98ddb4c0094017f0aafcf2c5f.png" alt="在这里插入图片描述"></li>
+<li>字符串的两种表示形式
+(1) 双引号, 会识别转义字符
+(2) 反引号，以字符串的原生形式输出，包括换行和特殊字符，可以实现防止攻击、输出源代码等效果
+【案例演示】
+<img src="https://img-blog.csdnimg.cn/4168f3c33f4044a6bca027953dd4aa08.png" alt="在这里插入图片描述"></li>
+<li>字符串拼接方式
+<img src="https://img-blog.csdnimg.cn/4c0f959ccb8b4880820013c8e8dce5a5.png" alt="在这里插入图片描述"></li>
+<li>当一行字符串太长时，需要使用到多行字符串，可以如下处理
+<img src="https://img-blog.csdnimg.cn/8fe54d3634864006b2beb560d3baa0c3.png" alt=""></li>
+</ol>
+<h3 id="213基本数据类型的默认值">2.13基本数据类型的默认值</h3>
+<h4 id="2131基本介绍">2.13.1基本介绍</h4>
+<p>在 go 中，数据类型都有一个默认值，当程序员没有赋值时，就会保留默认值，在 go 中，默认值又叫零值。</p>
+<h4 id="2132-基本数据类型的默认值如下">2.13.2 基本数据类型的默认值如下</h4>
+<p><img src="https://img-blog.csdnimg.cn/00549d05ca1844e4b49e0ced22d5a133.png" alt="在这里插入图片描述">
+案例:
+<img src="https://img-blog.csdnimg.cn/cc1b3c5107994274b0d04e9db28feb1f.png" alt="在这里插入图片描述"></p>
+<h3 id="214-基本数据类型的相互转换">2.14 基本数据类型的相互转换</h3>
+<h4 id="2141-基本介绍">2.14.1 基本介绍</h4>
+<p>Golang 和 java / c 不同，Go 在不同类型的变量之间赋值时需要显式转换。也就是说 Golang 中数据类型不能自动转换。</p>
+<h4 id="2142-基本语法">2.14.2 基本语法</h4>
+<p>表达式T(v)将值v 转换为类型 T</p>
+<pre tabindex="0"><code>T: 就是数据类型，比如int 32 ，int 64 ，float 32 等等
+v:就是需要转换的变量
+</code></pre><h4 id="2143-案例演示">2.14.3 案例演示</h4>
+<p><img src="https://img-blog.csdnimg.cn/1b3d1fd7eb854f5daf84fef647639b92.png" alt="在这里插入图片描述"></p>
+<h3 id="3-14-4-基本数据类型相互转换的注意事项">3 14 4 基本数据类型相互转换的注意事项</h3>
+<pre tabindex="0"><code>1 )Go中，数据类型的转换可以是从 表示范围小--&gt;表示范围大，也可以 范围大---&gt;范围小
+2 )被转换的是变量存储的数据(即值)，变量本身的数据类型并没有变化！
+3 )在转换中，比如将int 64 转成int 8 【- 128 - -- 127 】，编译时不会报错，只是转换的结果是按溢出处理，和我们希望的结果不一样。因此在转换时，需要考虑范围.
+</code></pre><p><img src="https://img-blog.csdnimg.cn/47888249300341cbae902cf2facb61c7.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/7f3fc0af96954f35a291b40b63ba1e67.png" alt="在这里插入图片描述"></p>
+<h3 id="215-基本数据类型和string的转换">2.15 基本数据类型和STRING的转换</h3>
+<h4 id="2151-基本介绍">2.15.1 基本介绍</h4>
+<p>在程序开发中，我们经常将基本数据类型转成string,或者将string转成基本数据类型。</p>
+<h4 id="2152-基本类型转string类型">2.15.2 基本类型转string类型</h4>
+<p> 方式 1 ：fmt.Sprintf(&quot;%参数&quot;, 表达式) 【个人习惯这个，灵活】</p>
+<p>函数的介绍：
+<img src="https://img-blog.csdnimg.cn/b0cbfab3c76248488c7a2752c38e5817.png" alt="在这里插入图片描述"></p>
+<pre tabindex="0"><code>参数需要和表达式的数据类型相匹配
+fmt.Sprintf()..会返回转换后的字符串
+</code></pre><p> 案例演示
+<img src="https://img-blog.csdnimg.cn/d5d2fe6a68454078ab2ff5f4319f0585.png" alt="在这里插入图片描述"></p>
+<p> 方式 2 ：使用strconv 包的函数
+<img src="https://img-blog.csdnimg.cn/a5c88fbf5b30447ab11bcdc7ad2262e3.png" alt="在这里插入图片描述"></p>
+<p> 案例说明
+<img src="https://img-blog.csdnimg.cn/fd886d45485f4fe09423be43deb384c7.png" alt="在这里插入图片描述"></p>
+<h4 id="2153-string类型转基本数据类型">2.15.3 string类型转基本数据类型</h4>
+<p> 使用时strconv包的函数
+<img src="https://img-blog.csdnimg.cn/19a4662861fc4f63b849f7f83bd69453.png" alt="在这里插入图片描述"></p>
+<p> 案例演示
+<img src="https://img-blog.csdnimg.cn/a203485aa1ba4605894fc5fed72568be.png" alt="在这里插入图片描述"></p>
+<p> 说明一下</p>
+<p><img src="https://img-blog.csdnimg.cn/4575ddfe735945e2b2396a3297fe2420.png" alt="在这里插入图片描述"></p>
+<h4 id="2154-string转基本数据类型的注意事项">2.15.4 string转基本数据类型的注意事项</h4>
+<p>在将String 类型转成 基本数据类型时，要确保String类型能够转成有效的数据，比如我们可以把 &quot; 123 &ldquo;,转成一个整数，但是不能把&quot;hello&quot;转成一个整数，如果这样做，Golang直接将其转成 0 ,
+其它类型也是一样的道理.float=&gt; 0 bool=&gt;false
+案例说明：
+<img src="https://img-blog.csdnimg.cn/d608e5a402254ea99d7d111ec16bcd96.png" alt="在这里插入图片描述"></p>
+<h3 id="216-指针">2.16 指针</h3>
+<h4 id="2161-基本介绍">2.16.1 基本介绍</h4>
+<pre tabindex="0"><code>1 )基本数据类型，变量存的就是值，也叫值类型
+2 )获取变量的地址，用&amp;，比如：varnumint,获取num的地址：&amp;num
+分析一下基本数据类型在内存的布局.
+3 )指针类型，指针变量存的是一个地址，这个地址指向的空间存的才是值
+比如：varptr*int=&amp;num
+举例说明：指针在内存的布局.
+4 )获取指针类型所指向的值，使用：*，比如：varptr*int,使用*ptr获取ptr指向的值
+</code></pre><h4 id="2162-案例演示">2.16.2 案例演示</h4>
+<pre tabindex="0"><code>1 )写一个程序，获取一个int变量num的地址，并显示到终端
+2 )将num的地址赋给指针 ptr,并通过ptr去修改num的值.
+</code></pre><p><img src="https://img-blog.csdnimg.cn/eede46282f1a4039a8e2f09f7602ef78.png" alt="在这里插入图片描述"></p>
+<h4 id="2163-指针的使用细节">2.16.3 指针的使用细节</h4>
+<p>1 )值类型，都有对应的指针类型，形式为 <em>数据类型，比如int的对应的指针就是</em>int,float 32</p>
+<p>对应的指针类型就是 *float 32 , 依次类推。</p>
+<p>2 )值类型包括：基本数据类型 int系列,float系列,bool,string 、数组和结构体struct</p>
+<h3 id="217-值类型和引用类型">2.17 值类型和引用类型</h3>
+<h4 id="2171-值类型和引用类型的说明">2.17.1 值类型和引用类型的说明</h4>
+<p>1 )值类型：基本数据类型int系列,float 系列,bool,string 、数组和结构体struct
+2 )引用类型：指针、slice切片、map、管道chan、interface等都是引用类型</p>
+<h4 id="2172-值类型和引用类型的使用特点">2.17.2 值类型和引用类型的使用特点</h4>
+<pre tabindex="0"><code>1 )值类型：变量直接存储值，内存通常在栈中分配
+示意图：
+</code></pre><p><img src="https://img-blog.csdnimg.cn/239389e2b67842209d2358430cb79d18.png" alt="在这里插入图片描述"></p>
+<pre tabindex="0"><code>2 )引用类型：变量存储的是一个地址，这个地址对应的空间才真正存储数据(值)，内存通常在堆
+
+上分配，当没有任何变量引用这个地址时，该地址对应的数据空间就成为一个垃圾，由GC来回收
+</code></pre><p>示意图：
+<img src="https://img-blog.csdnimg.cn/cad43814b2b4489e9991dbc3d5ef6b80.png" alt="在这里插入图片描述"></p>
+<pre tabindex="0"><code>3 )内存的栈区和堆区示意图
+</code></pre><p><img src="https://img-blog.csdnimg.cn/e57a095aa8e947c9aed5e5a77c85c6cd.png" alt="在这里插入图片描述"></p>
+<h3 id="218-标识符的命名规范">2.18 标识符的命名规范</h3>
+<h4 id="2181-标识符概念">2.18.1 标识符概念</h4>
+<pre tabindex="0"><code>1 )Golang 对各种变量、方法、函数等命名时使用的字符序列称为标识符
+2 )凡是自己可以起名字的地方都叫标识符
+</code></pre><h4 id="2182-标识符的命名规则">2.18.2 标识符的命名规则</h4>
+<pre tabindex="0"><code>1 )由 26 个英文字母大小写， 0 - 9 ，_组成
+2 )数字不可以开头。varnumint//ok var 3 numint//error
+3 )Golang中严格区分大小写。
+var num int
+var Num int
+说明：在golang中，num 和Num 是两个不同的变量
+4 )标识符不能包含空格。
+5 )下划线&#34;_&#34;本身在Go中是一个特殊的标识符，称为空标识符。可以代表任何其它的标识符，但是它对应的值会被忽略(比如：忽略某个返回值)。所以仅能被作为占位符使用，不能作为标识符使用
+6 )不能以系统保留关键字作为标识符（一共有 25 个），比如 break，if等等...
+</code></pre><h4 id="2183-标识符的案例">2.18.3 标识符的案例</h4>
+<pre tabindex="0"><code>hello //ok
+hello 12 //ok
+1 hello//error,不能以数字开头
+h-b //error,不能使用 -
+xh //error,不能含有空格h_ 4 //ok
+_ab //ok
+int //ok,我们要求大家不要这样使用
+float 32 //ok,我们要求大家不要这样使用
+_ //error
+Abc //ok
+</code></pre><h4 id="2184-标识符命名注意事项">2.18.4 标识符命名注意事项</h4>
+<p>1 )包名：保持package的名字和目录保持一致，尽量采取有意义的包名，简短，有意义，不要和标准库不要冲突fmt
+<img src="https://img-blog.csdnimg.cn/cddff8e2900f4abd8b51c7b5fb689003.png" alt="在这里插入图片描述"></p>
+<pre tabindex="0"><code>2 )变量名、函数名、常量名：采用驼峰法
+举例：
+varstuNamestring=“tom” 形式:xxxYyyyyZzzz...
+vargoodPricefloat 32 = 1234. 5
+</code></pre><p>3 )如果变量名、函数名、常量名首字母大写，则可以被其他的包访问；如果首字母小写，则只能在本包中使用(注：可以简单的理解成，首字母大写是公开的，首字母小写是私有的),在golang没有public,private等关键字。
+案例演示：
+<img src="https://img-blog.csdnimg.cn/f6cb545a5461419dbf2e0c8f74720283.png" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/7ba4b80e5d014404930304deae7199b1.png" alt="在这里插入图片描述"></p>
+<h3 id="219-系统保留关键字">2.19 系统保留关键字</h3>
+<p><img src="https://img-blog.csdnimg.cn/cf692cac759641dd992462fe36a212ac.png" alt="在这里插入图片描述"></p>
+<h3 id="220-系统的预定义标识符">2.20 系统的预定义标识符</h3>
+<p><img src="https://img-blog.csdnimg.cn/c37e8fa8b9224b7fa1b15c68837b6213.png" alt="在这里插入图片描述"></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
